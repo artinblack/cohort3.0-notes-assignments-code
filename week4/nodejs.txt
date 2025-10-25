@@ -1,0 +1,136 @@
+What is Node.js ? 
+- node.js is an open source JS runtime that allows you to execute JavaScript code on the server side . It is built on Chrome's V8 JS engine . 
+
+Runtime ? 
+- The environment where JS code is executed . It could be :
+    - on the server 
+    - in the browser 
+    - on a small watch 
+
+{
+  "name": "week4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
+
+- name : name of the package 
+- scripts : an objects where you define custom command shortcuts ( scripts ) that can be executed via npm  
+- keywords : An array of keywords or tags that describe your project.
+Used to help others find your package on npm.
+- dependencies : 
+
+JS is a scripting lang 
+JS - can run on a website it would be nice if it would run on the backend/server 
+JS can be run on the machine why is that because we have node.js installed on the machine here machine is server 
+V8 was the popular one , now we have another one called BUN , which is gaining a lot of populariy 
+BUN is the new js runtime that is competing with node.js 
+BUN is significantly faster than node js 
+
+
+npm :- Node Package Manager 
+- it is a package manager for JavaScript , primarily used for managing libraries and dependencies in Node.js projects. NPM allows developers to easily install , update and manage packagers of reusable code 
+
+Uses of npm 
+- initialize a project : npm init 
+- running scripts : npm run test 
+- installing external dependencies : npm install chalk ( external package => chalk)
+
+Internal Packages 
+- Node.js provides you some packages out of the box. Some common ones include 
+    1 fs - Filesystem
+    2 path - Path related function 
+    3 http - Create HTTP servers 
+
+External Packages 
+- These are packages written and maintained by other people. You just use their work in your project 
+- For Example 
+    - Express
+    - chalk 
+
+The format of semantic versioning format 
+- MAJOR - Major version changes indicate significant updates or breaking changes 
+- MINOR - Minor version changes signify the addition of new features or improvements in a backward-compatible manner . 
+- PATCH - Patch version changes include backward compatible bug fixes or minor improvements that address issues without adding new features or causing breaking changes 
+
+package-lock.json
+The package-lock.json records the exact versions of all dependencies and their dependencies (sub-dependencies) that are installed at the time when npm install was run.
+Consistency: By locking down these versions, package-lock.json ensures that every time someone installs dependencies (e.g., by running npm install), they get the exact same versions of packages. This prevents discrepancies that can arise from different versions being installed in different environments.
+
+Assignment #1 - 
+- create a CLI that lets user specify a file path and the nodejs process counts the number of words inside it . 
+
+Input - node index.js /Users/kirat/file.txt
+Output - You have "10" words in this file 
+
+Assignment #2 - 
+- filebased system todo list 
+- create a cli that lets a user 
+    - Add a todo 
+    - Delete a todo 
+    - Mark a todo as done 
+
+Store all the data in files (todos.txt) 
+
+// import chalk from 'chalk' ; 
+
+// console.log(chalk.blue("Hello World"))
+// console.log(chalk.red.bold('This is an error message'))
+// console.log(chalk.green.underline('This is a success message'))
+
+// const fs = require('fs') ; 
+// const path = require('path') ; 
+
+// const filePath = path.join(__dirname,'nodejs.txt') ; 
+// console.log(filePath)
+
+// fs.readFile(filePath,'utf-8',function(err,data) { 
+//     if(err) { 
+//         console.log(err);
+//     } else { 
+//         console.log(data)
+//     }
+// })
+
+// const fs = require('fs') ; 
+
+// function main(fileName) { 
+//     fs.readFile(fileName , 'utf-8' , (err,data) => { 
+//         if(err) { 
+//             console.log(err)
+//         } else { 
+//             const lines = data.split('\n').length ; 
+//             console.log(`There are ${lines} lines in ${fileName}`)
+//         }
+//     })
+// }
+
+// main('nodejs.txt')
+
+// const fs = require('fs') ;
+// const { Command } = require('commander') ; 
+// const program = new Command() ; 
+
+// // initial creation of the counter command line that takes the name description and version of the app 
+// program.name('counter').description('CLI to do file based tasks').version('1.0.0') ; 
+
+// // creation of the command count that takes the description , the argument that is the file name <file> variable will take in the file that you pass in the command line then send it to action  and the action that is to read the lines of the file
+// program.command('count').description('Count the number of words in a file').argument('<file>','file to count').action((file) => { 
+//     fs.readFile(file , 'utf-8' , (err,data) => { 
+//         if(err) { 
+//             console.log(err)
+//         } else { 
+//             const lines = data.split('\n').length ;
+//             console.log(`The ${file} has ${lines} lines`)
+//         }
+//     })
+// })
+
+// program.parse(); 

@@ -1,0 +1,50 @@
+    - Trying to code an in memory todo app 
+    - Assignment - Trying to code a filesystem based todo app 
+
+Assignment of previous week try to make an express server for these assignments 
+
+Headers 
+- headers are some extra meta data that you send with your request 
+- response headers , request headers 
+- they are the key-value pairs sent between a client ( like a web browser ) and a server in an HTTP request or response. They convey metadata about the request or response such as content type , auth information etc 
+
+Common headers 
+1 Authorization ( send the user auth information )
+2 content-type - Type of information client is sending ( json , binary etc ) 
+3 referrer - which url is this request coming from 
+
+Request headers 
+- the headers the client sends out in the request are known as request headers 
+
+Response headers 
+- the headers that the server responds with are known as the response headers 
+
+FETCH API  
+- There are 2 high level ways a browser 
+- We can send background requests to the server 
+
+Create your own http server 
+
+MIDDLEWARE and CORS 
+
+In express.js , middleware  refers to functions that have access to the request object ( req ) response object ( res ) and the next function in the application's request-response cycle 
+
+middleware functions can perform  a variety of tasks, such as 
+1 modifying the request or response objects 
+2 ending the request-response cycle
+3 calling the next middleware function in the stack 
+
+COMMONLY USED MIDDLEWARES 
+- 1 express.json : it is a built-in middleware function in Express.js used to parse incoming request bodies that are formatted as JSON. This middleware is essential for handling JSON payloads sent by clients in POST or PUT requests 
+
+CORS - cross origin resource sharing 
+- it is a security feature implemented by web browsers that control how resources on a web server can be requested from another domain. It is crucial mechanism for managing cross-origin requests and ensuring secure interactions between different origins on the web 
+- if you are getting a request from a different origin then you should block that request 
+- the cross origin resource sharing should not be allowed by default 
+- in node.js by default the cors request's are blocked 
+
+Assignment
+1 Create a backend server in node.js , that returns the sum endpoint 
+2 write an HTML file , that hits this backend server using the fetch api 
+
+in next.js frontend's and backend's are hosted on the same domain 

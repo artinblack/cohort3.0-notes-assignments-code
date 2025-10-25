@@ -1,0 +1,66 @@
+git and github 
+
+what is git ? 
+- free and opensource version control system 
+
+what is version control system ? 
+- a system that keeps track of our files and projects. 
+- it allows you to revert selected files to a previous state, revert the entire project to a previous state, compare changes overtime , see who last modified something so that we can know what might be causing a problem , or what is the issue , who made it , and when with the details 
+
+version control system are of two types 
+- centralized 
+- distributed 
+
+Helps you backup , track and synchronize the files 
+centralized vcs
+Main trunk 
+    - milk ( + soup ) -> sue 
+        - milk,soup (+ juice ) -> joe 
+            - milk , soup , juice
+
+distributed vcs 
+- all the checkout points are synchronized changes 
+
+why git ? 
+- free 
+- open source 
+- scalable 
+- super fast
+- cheap branching and merging 
+
+what is github ?
+- github is a web-based hosting services for git repositories 
+- you can use git without Github , but you cannot use github without git. 
+
+Local repo 
+- every vcs tool provides a private workplace as a working copy. Developers make changes in their private workplace and after commit, these changes become a part of the repository. Git takes it one step further by providing them a private copy of the whole repository . Users can perform many operations with this repo such as add file, remove file , rename file , move file , commit changes and many more 
+
+Working directory and staging area or index : An intermediate area where commits can be formatted and reviewed before completing the commit . 
+
+push : send a change to another repository ( may require permission ) 
+pull : grab a change from a repository
+
+basic workflow of git 
+step 1 : you modify a file from the working directory
+step 2 : you add these files to the staging area 
+step 3 : you perform commit operation that moves the files from the staging area. After push operation, it stores the changes permanently to the Git repository
+
+git add , git commit 
+
+Blobs - blob stands for binary large object, each version of a file is represented by blob 
+
+Trees - tree is an object , which represents a directory. It holds blobs as well as other sub-directories . A tree is a binary file that stores references to blobs and trees which are also named as SHA1 hash of the tree object. 
+
+Commits - commit holds the current state of the repository . A commit is also named by SHA1 hash 
+Commit object - a node of the linked list 
+Every commit object has a pointer to the parent commit object 
+From a given commit , you can traverse back by looking at the parent pointer to view the history of the commit 
+If a commit has multiple parent commits, then that particular commit has been created by merging two branches 
+
+Git basic commmands 
+- clone => bring a repo hosted somewhere like github into a folder or your local machine . 
+- add => track your files and changes in Git .
+- commit => save your files in git . 
+- push => upload your commits to a git repo , like Github 
+- pull => download changes from a remote repo to your local repo 
+

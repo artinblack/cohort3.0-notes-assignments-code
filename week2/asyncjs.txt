@@ -1,0 +1,101 @@
+Normal function in JS 
+
+- find sum of two numbers 
+
+"20" + 30 -> the string gets concatinated 
+
+to parse the string to integer ( use parseint )
+
+try to create a promisified version of setTimeout , fetch , fs.readFile 
+
+any line that is run by the thread is known as synchronous javascript
+
+synchronous code execution - code is executed line by line , in the order it is written , Each operation waits for the previous one to complete before moving on to the next one . 
+
+I/O heavy operations 
+
+refer to tasks in a computer program that involve a lot of data transfer between the program and external systems or devices . These operations usually require waiting for data to be read from or written to sources like disks , networks , databases , or other external devices , which can be time-consuming compared to in-memory computations 
+
+that does something outside the context of the file itself 
+
+example of IO heavy operations 
+1 reading a file 
+2 starting a clock 
+3 HTTP Requests 
+
+we are going to introduce imports/requires next. A require statement lets you import code/functions export from another file/module. 
+
+the nodejs filesystem module allows you to work with the file system on your computer 
+
+- add the module 
+- fs.readFileSync("a.txt" <- file name ,"utf-8" <- encoding ) ; 
+- console.log(data) 
+
+i/o bound tasks vs cpu bound tasks 
+
+cpu bound tasks 
+- are operations that are limited by the speed and power of the CPU . These tasks require significant computation and processing power meaning that the performance bottleneck is the CPU itself 
+
+io bound tasks 
+- they are operations that are limited by the systems INPUT/OUTPUT capabilities , such as disk IO , network IO or any other form of data transfer . These tasks spend most of their time waiting for IO operations to complete . 
+
+running io bound tasks asynchrounously is the better option 
+
+functional arguments 
+- write a calculator program that adds , subtracts , multiplies , divides two arguments 
+- passing a function to another function as an argument 
+
+JS architecture for async code 
+1 call stack :- it is a data structure that keeps track of the function calls in your program . It operates in a "Last In, First Out" ( LIFO ) manner , meaning the last function that was called is the first one to be executed and removed from the stack. 
+- when the function is called , it gets pushed onto the call stack. When the function completes , it is popped off the stack.
+
+2 Web Api's :- 
+- web api's are provided by the browser ( or the Node.js runtime ) and allow you to perform tasks that are outside the scope of javascript language itself , such as making network requests , setting timers or handling DOM events ; 
+
+3 callback queue :- 
+- the callback queue is a list of tasks ( callbacks) that are waiting to be executed once the call stack is empty. These tasks are added to the queue by web API's after they have completed their operation . 
+
+4 event loop :- 
+- the loop constantly checks if the call stack is empty. If it is and there are callbacks in the callback queue, it will push the first callback from the queue onto the call stack for execution. 
+
+finally javascript is single threaded 
+
+week-2 promises 
+
+what we are going to do today ? 
+- classes in js 
+- revise callbacks 
+- callback hell 
+- promises 
+- async await 
+
+Classes in javascript 
+- in javascript , classes are a way to define blueprints for creating objects ( these objects are different from the objects defined in the last section )
+
+let myPromise = new Promise(function(resolve, reject){
+// apna async task karo
+    setTimeout(()=>{console.log('timeout executed')}, 10000)
+// maan lo itna hi async task tha toh ab resolve kar do
+    resolve("promise executed")
+})
+
+// then ko Promise ke oopar use karte hai
+myPromise.then((resolvedValueJoAayi)=>{console.log(resolvedValueJoAayi)}) // logs 'promise executed'
+
+two things in a class : the class and the object of the class 
+
+a promise is an object representing the eventual completion or failure of an asynchronous operation. Since most people are consumers of already-created promises 
+
+a promise is a returned object to which you attach callbacks , instead of passing callbacks into a function. Imagine a function , createAudioFileSync() , which asynchronously generates a sound file given a configuration record and two callback functions : one called if the audio files is successfully created and the other called if an error occured 
+
+using of a promise is clear the function will resolve and then call the callback function . the main problem is in the creation of the promise 
+
+- the first argument in the promise is a function 
+whenever you create a promise the first argument that you create that is the function the first parameter of the function will become the content of your callback function 
+
+create your own Promise Class 
+
+readFile().then(callback) ; 
+- inside readFile() -> checking if the promise is resolved or rejected ( because promise is just promising that it will return a value )
+
+- you need to know atleast how to use them that is when you know you are sorted 

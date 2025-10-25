@@ -1,0 +1,9 @@
+installing node , solving assignments 
+- installing node.js 
+- using node.js to do assignments 
+- easy js assignments for week 2 
+- medium 
+- hard 
+- easy async assignments 
+- medium async  
+

@@ -1,0 +1,240 @@
+Intro to http 
+
+CONTEXT
+- Today , we will learn understand about HTTP servers 
+- More specifically 
+    - Intro to the HTTP Protocol , what does it solve 
+        - Exploring the network tab in the chrome developer tools 
+        - Request response model 
+    - Diving into HTTP Constructs 
+        - Domain name/IP
+        - Port 
+        - Methods 
+        - Plaintext vs JSON vs HTML response 
+        - Status codes 
+        - Body , Headers 
+        - Routes 
+    - Installing postman and playing with it 
+    - Trying to code an in memory todo app 
+    - Assignment - Trying to code a filesystem based todo app 
+
+Why the HTTP Protocol ? 
+
+When you go to fb.com , gl.com you are actually sending a request via the wires that you have, via the router that you have in your house , To some machine , that machine is responding back with some HTML , CSS and JS which your browser is rendering over here . 
+
+How do you know when you go to fb.com that you are hitting the HTTP server ? 
+- By Exploring the network tab
+
+What does the network request mean ? 
+- you sending out a request to a server , server responding back with something. All of these things that you see are request to a HTTP server 
+
+How is the page rendered out in the browser ? 
+- You send a request to the Google Server 
+- The server will respond back with some html
+
+you -> request -> server 
+server -> responds -> you
+
+basically you are only requesting and not responding and the server is always responding and not requesting
+
+Chrome developer tools - we can read through the source code of Google.com 
+
+The method the client talking to a server ( requesting ) and the server talking to a client ( responding ) is called the request response model 
+
+There are other ways for you to communicate b/w machines 
+- websockets
+- webRTC 
+- GRPC
+
+Domain name/IP 
+- the way to reach a server is through its Domain Name . For example 
+    - google.com
+    - app.100xdevs.com
+    - x.com
+
+IP's 
+- every domain that you see , actually has an underlying IP that it resolves to.
+- You can check the ip by running the ping command 
+
+You are pointing your domain name to your server 
+
+Ports 
+- In networking , ports are logical endpoints used by protocol to identify  specific processes running on a computer or server. They help direct network traffic to the correct application or service on a system. 
+- on the same domain you can have multiple processes that it points to 
+- different domain can run on the same port and on the same ip address internally the server decides what to respond to the client ( appx or projectx )
+
+default ports for different things 
+- HTTP => 20 
+- HTTPS => 443 
+- SSH => 22 
+
+Methods 
+- HTTP methods are used to specify the type of action that the client wants to perform on a resource on the server 
+
+- You don't NEED to use all the methods , but you always should . You can do everything you want with GET and POST method , but it is usually advisable to use them right. 
+
+Common methods 
+- GET - Retrieve data from a server . ( Get my TODOS ) 
+- POST - when you want to create something ( Create a new TODO ) submit data to be processed by a server 
+- PUT - when you want to update something ( PUT request ) update or create a resource on the server ( Update my todo )
+- DELETE - when you want to delete something ( DELETE request ) remove a resource from the server. ( Delete my todo ) 
+
+when you type google.com on the browser and press enter a get request goes out to the server 
+
+CRUD ( todo website )
+- Create - you can create a todo 
+- Read - you can read a todo 
+- Update - you can update a TODOS  
+- Delete - you can delete a todo 
+
+
+Response 
+- The response represents what the server returns you in response to the request 
+It could be - 
+    - plaintext data - not used as often 
+    - HTML - if it is a website 
+    - JSON Data  - if you want to fetch some data ( user details , list of todos )
+
+JSON - javascript object notation 
+
+Status codes 
+HTTP Status codes are three digit numbers returned by a server to indicate the outcome of a client's request. They provide information about the status of the request and the server's response. 
+
+A three digit code by the server that indicate the outcome of the client's request
+
+
+200 series ( success ) 
+- 200 OK : The request was successful, and the server returned the requested resource 
+- 204 No Content : The request was successful, but there is no content to send in the response 
+
+300 series ( redirection )
+- 301 Moved permanently : The requested resource has been moved to a new URL permanently . The client should use the new URL provided in the response 
+- 304 Not Modified : The resource has not been Modified since the last request . the client can use the cached version . 
+
+400 series ( client error )
+- 400 Bad request : The server could not understand the request due to invalid syntax 
+- 401 Unauthorized : The request required user authentication . the client must provide credentials 
+- 403 forbidden : the server understood the request but refuses to authorize it. 
+- 404 not found : the requested resource could not be found on the server. 
+
+500 series (server error)
+- 500 internal server error : the server encountered an unexpected condition that prevented it from fulfilling the request. 
+- 502 bad gateway : the server received an invalid response from an upstream server while acting as a gateway or proxy 
+
+what do bad companies do ? 
+- they don't use status codes correctly 
+
+Body 
+- In http communications , the body ( or payload ) refers to the part of an HTTP message that contains the actual data being sent to the server. 
+- It is usually JSON data that is transferred to the server. 
+
+Routes 
+- in the context of HTTP, routes are paths or endpoints that define how incoming requests are handled by a server. Routing is a mechanism used to direct incoming HTTP requests to the appropriate handler functions or resources based on the URL path 
+
+BACKEND for an TODO app ( HTTP ) 
+- fetch,cors 
+- Frontend 
+
+localhost is another domain name similar to google.com 
+
+This week's assignment build a todo application in memory
+hard -> store the data in a file , foundation for databases 
+add user logic 
+
+the next hard thing is middlewares 
+
+Express and http with real world examples , Postman 
+
+Real world example :- going to the doctor 
+- Doctors have a skill 
+- They have acquired that skill over years 
+- They provide service to other people who want to use their skill 
+- To expose their life skill, they open a clinic 
+- People who want to use their skill line up in a waiting room 
+- One by one , the doctor meets with them 
+- The doctor is single threaded 
+
+How do people reach the doctors ? 
+They get their address and navigate to it 
+once they reach the clinic they wait in the waiting area until their time comes 
+Doctor tends to treat them one by one 
+Doctor after treating can tell them to get the medicine in the middle ( from the chemist) and meanwhile treat other people ( similar to async task )
+You comeback and wait in the waiting room again 
+
+- Doctors are similar to js thread 
+
+Your logic is like a doctor 
+
+But what if you want to expose this logic to the world ? 
+
+This is where HTTP comes into the picture it lets you create a ~hospital where people can come and find you 
+
+Question 
+How do I expose my doctor functionality to other people ? How can they find me ? 
+
+Answer 
+By creating an HTTP server 
+
+Question ? 
+How do I create an HTTP server 
+
+Answer 
+Express , Spring Boot 
+
+Exposing the doctors one functionality ( kidney surgery , brain surgery ) Doctor could have multiple rooms inside the hospital, this is one of them. 
+
+app.get('/',(req,res) => {}) 
+---------------------------------
+Deciding the address of the clinic 
+app.listen(3000) ; 
+---------------------------------
+
+You can have a single hospital and multiple doctors ( eg d1 , d2 ) 
+one machine multiple HTTP servers 
+
+How do patients reach the hospital / code ? 
+- just go to the browser 
+
+Request methods 
+GET :- Going for a consultation to get a check up 
+POST :- Going to get a new kidney inserted 
+PUT :- Going to get a kidney replaced 
+DELETE :- Going to get a kidney removed 
+
+Status Codes 
+1 200 - Everything went fine 
+2 404 - Doctor is not in the hospital 
+3 500 - midsurgery light went away 
+4 411 - inputs were incorrect , wrong person came to surgery 
+5 403 - you were not allowed in the hospital
+
+Learn by doing , lets create an in memory hospital
+
+This week's assignment build a todo application in memory
+hard -> store the data in a file , foundation for databases 
+add user logic 
+
+MIDDLEWARES - BASIC EXAMPLE 
+- let's say in the real world there is an amusement park and there is a very fancy ride there . there is a very long line in front of that fancy ride.
+- there is a ticket checker in front of the ride 
+- imagine there is a person in the line without the ticket so how would the flow go ? 
+- ticket checker will kick them out 
+- The ticket checker is called a middleware
+
+A person sitting in the middle of your end client and the final ride that you are trying to access doing certain checks making sure that only people with legitimate access have acccess to the ride 
+
+Using middleware 
+Express is a routing and middleware web framework that has minimal functionality of its own : An express application is essentially  a series of middleware function calls 
+
+Middleware functions are functions that have access to the req , res and the next middleware function in the application's req res cycle. 
+
+Middleware functions can perform the following tasks : 
+- execute any code 
+- make changes to the request and the response objects 
+- end the request-response cycle 
+- call the next middleware function in the stack 
+
+An express app is a series of middleware calls 
+
+Middlewares are mainly used to track metrics but they can be used for other stuff as well like authentication and security 
+

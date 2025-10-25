@@ -1,0 +1,41 @@
+DOM Manipulation 
+- what is DOM ? 
+- static HTML
+- dynamic HTML 
+- fetching elements 
+- updating elements 
+- deleting elements 
+- adding elements 
+- more complex elements
+
+what is DOM ? 
+the dom or document object model is a programming interface for web documents . it represents the structure of a web page as a tree of objects. 
+
+the DOM abstracts the structure of the document into a tree of objects, allowing scripts to manipulate the content and structure dynamically. This abstraction enables more complex interactions and functionalities beyond just static HTML 
+
+static html - represents html that does not change . 
+
+create , delete , update , read 
+
+Fetching elements (reading the data) 
+- these are the five popular methods available for fetching DOM elements :- 
+    - querySelector 
+    - querySelectorAll 
+    - getElementById
+    - getElementByClassName 
+    - getElementsByClassName
+
+Updating elements 
+- .innerHTML - used for updating the HTML inside an element 
+- .textContent - used for updating the textContent inside an element 
+
+Deleting elements 
+- removeChild = removes a specific node of a parent 
+- onClick = function that triggers whenever you click on a button 
+
+Adding elements 
+- createElement 
+- appendChild 
+
+Creating todo application 
+- look at todo.html

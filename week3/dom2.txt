@@ -1,0 +1,78 @@
+DOM Part 2 
+
+Context for today 
+- dom manipulation(slightly more advanced) 
+- create a mock reconcilers 
+- state and state management
+
+Complex DOM Manipulation 
+creating a DOM element which has another DOM element inside 
+
+let's write some code in which you have a button. When you click on a button, a slightly Complex DOM element gets appended to the DOM 
+
+State derived frontends 
+- To make frontends easier to code , the concept of state came into the picture . You will see this more when we reach react . 
+- There are three jargon we need to understand 
+1 State - The variable parts of an app. 
+2 Components - How to render state on screen . 
+3 Rendering - Taking the state and it on the DOM based on the Components
+
+what are we trying to learn is making our life easier as the front end engineer 
+
+ // function addTodo() { 
+    //     const value = document.querySelector("input").value ; 
+    //     const spanEl = document.createElement("span") ; 
+    //     const buttonEl = document.createElement("button") ; 
+    //     spanEl.innerHTML = value ; 
+    //     buttonEl.innerHTML = "Delete" ; 
+    //     // buttonEl.classList.add('buttonstyle') ; 
+    //     ////
+    //     const divEl = document.createElement("div") ; 
+    //     divEl.appendChild(spanEl) ; 
+    //     divEl.appendChild(buttonEl) ; 
+    //     // divEl.classList.add('divstyle') ; 
+    //     ////
+    //     document.querySelector("body").appendChild(divEl) ; 
+    // }
+
+the process of clearing the difference between the old state and the new state is known as reconciliation in react 
+
+Delete functionality 
+- Again , we don't have to do any dom mannipulations here it is all handled by our "render" function 
+
+Assignments 
+- https://github.com/Master-utsav/Render-Todo/blob/main/index.html
+
+
+TODO HTML Previous 
+<html>
+    <body>
+        <input type="text"></input> 
+        <button onclick="addTodo()">Add Todo</button>       
+    </body>
+    <script>
+        let ctr = 1 
+        function deleteTodo(index) { 
+            const element = document.getElementById(index) ; 
+            element.parentNode.removeChild(element) ; 
+        }
+
+        function addTodo() { 
+            // fetching the input value
+            const inputEl = document.querySelector('input') ; 
+            const value = inputEl.value ; 
+
+            // creating a new div element and giving it an id 
+            const newDivEl = document.createElement("div") ; 
+            newDivEl.setAttribute("id",ctr)     
+            newDivEl.innerHTML = "<div>" + value + '</div><button onclick="deleteTodo(' + ctr + ')">DELETE</button>'  ; 
+            ctr = ctr + 1 ; 
+
+            // adding the div element to the body 
+            document.querySelector('body').appendChild(newDivEl) ; 
+        }
+
+        // string concatenation
+        //looking at someone else's code is the worst way to learn code 
+    </script>
+</html>

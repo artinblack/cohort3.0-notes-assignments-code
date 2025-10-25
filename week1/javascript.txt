@@ -1,0 +1,63 @@
+Javascript 
+
+- going to the next page happens via javascript s
+- the hover is css 
+- the text and the button in the html tag 
+
+Facts/Callouts 
+
+- React and NextJS are frameworks , they compile down to HTML, CSS and JS in the end . That is what your browser understands . 
+- if someone asks - what all languages can your browser interpret , the answer is HTML , CSS , JS and WebAssembly . It can , technically , run C++/Rust code that is compiled down to WebAssembly. 
+
+Properties of JS 
+- Every language comes with it's unique set of features . 
+- Goldman Sachs has it's own language called Slang . 
+
+Javascript has the following :- 
+#1 Interpreted : 
+- JS is an interpreted language , meaning it is executed line by line at runtime by the Javascript engine in the browser or server environment, rather than being compiled into machine code beforehand 
+
+C++ code -----> binary -----> runs on your machine 
+
+JS code -----> runs on your machine 
+
+Upsides :- 
+1 there is one less step to do before running your code 
+ 
+Downsides :- 
+1 Performance Overhead 
+2 More prone to runtime errors 
+
+Typescript will make it closer to javascript , there will be less runtime errors 
+
+#2 Dynamically typed 
+- variables in javascript are not bound to a specific data type . Types are determined at runtime and can change as the program executes 
+- dynamic type - can change from string to number and vice versa 
+    - example : javascript 
+- static type - cannot change from string to number 
+    - example : cpp 
+
+#3 Single threaded 
+
+- js executes code in a single threaded environment , meaning it processes one task at a time. 
+- js code will run line by line on a single thread 
+
+#4 Garbage Collected 
+
+Javascript automatically manages memory allocation and deallocation through garbage collection , which helps prevent memory leaks by automatically reclaiming memory used by objects no longer in use . 
+
+1 variables - these are used to store data you declare variables using var let or const 
+
+objects 
+an object in javascript is a collection of key-value pairs , where each key is a string and each value can be any valid Javascript data type , including another objects 
+
+let user = { 
+    name : "Harkirat" , 
+    age : 19 , 
+}
+
+objects in js => map in C++ => hashmap in rust => hashmap in java 
+key value pair  
+
+string concatination 
+

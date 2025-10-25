@@ -1,0 +1,51 @@
+- 9 Project ideas to build before 2025 ends 
+- mobile app development , front end , rust , solana , rust for otherwise
+- spend your time on rust or go 
+
+Video Editor on top of Sora 
+- A marketplace for users to upload their photos and participate in videos 
+- Visual editor that lets users edit content themselves
+- Let creator build templates that users can use 
+
+OS Devin - openswe
+- Category of projects 
+    - Coderabbit 
+    - Lovable 
+    - Devin 
+- Indexing codebases 
+- Sandboxes for running/building code 
+- Comprehensive AI layer 
+- Github integration 
+
+MT-5/Exness - Largest trading app 
+- Lowest layer of API 
+- Backend heavy 
+- Speed/Latency matters 
+
+Web3 terminal - Single place to track all exchanges 
+
+1 place order together 
+2 track arbs visually 
+3 one click stratergies 
+
+n8n
+Is open source 
+Complicated Backend 
+Lot of small things to build 
+
+- building it from scratch is one variation 
+- contributing it is another variation 
+- building a bunch of nodes on top of n8n is another thing you can do 
+- you can build a specific node for them build it from scratch  ( small companies => them )
+
+Polymarket copy trading telegram app 
+- very easy to code trade unlike tradfi/defi 
+- clean API to place/cancel trades 
+- can be built one to two ways 
+    - managed accounts for users 
+    - get users api keys and trade on their behalf 
+- proportionately start making the trades that the highest trader  is making 
+account manager / play with api's 
+
+A clean UI for anything ( RN / React )
+- frontend 

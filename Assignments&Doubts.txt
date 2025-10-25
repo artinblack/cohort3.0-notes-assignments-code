@@ -1,0 +1,3 @@
+expenditure analysis - easy - week2-js 
+calculator - hard - week2-js 
+todolist - hard - week2-js 

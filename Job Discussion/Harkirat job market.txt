@@ -1,0 +1,25 @@
+Harkirat job market
+
+- code aggressively , build muscle memory 
+- debug independently , don't just rely on AI 
+- get hands dirty with projects -> show real interest in interviews 
+- hiring happens only when companies have " fuck you money " ( VC Fueled Growth ) 
+
+-need small dopamine hits : get any job to build confidence and momentum 
+- first offer is crucial; experimental learning comes later . 
+- avoid "doomsday mindset" and unproductive confort ( doomscrolling , gaming ) 
+
+- winners of 2026 : skills and industries 
+	- future proof bets : AI and web3 
+	- few engineers willing to deeply learn them 
+		- opportunity 
+	- how to decide 
+		- read gpt-2 paper -> if it excites you -> AI 
+		- read bitcoin whitepaper -> if it excites you -> web3 
+
+- both industries still need full stack , database , distributed systems engineers 
+
+- recession and layoffs will continue , 
+but that's healthy -> value-based hiring. 
+- good engineers who truly enjoy CS will still find jobs 
+- fundamentals remain : learn coding deeply , build simple apps , show value.  

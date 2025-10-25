@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>
+        Todolist-Assignment
+    </title>
+  </head>
+  <body class="bg-gray-700 text-white overflow-y-auto">
+    <div class="w-full max-w-md bg-gray-700 rounded-lg shadow-xl shadow-white  p-6 mt-16 mx-auto">
+        <h1 class="text-2xl font-bold text-center mb-6">
+            Todo List 
+        </h1>
+        <!-- Task Input -->
+        <div class="mb-4">
+            <input type="text" id="task-input" placeholder="Enter your task" class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <!-- Date and Time Input -->
+        <div class="mb-4 flex space-x-3">
+            <input type="date"  id="date-input" class="w-1/2 p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" min="2025-01-01" required/>
+            <input type="time" id="time-input"  class="w-1/2 p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" min="00:00" required />
+        </div>
+
+        <!-- Add Task Button -->
+        <button id="task-btn" class="w-full mt-3 p-3 bg-blue-500 rounded-lg text-white font-bold hover:bg-blue-600 transition" onclick="addTodo() ">
+            Add
+        </button>
+
+        <!-- Todo Items -->
+        <div id="todo-parent" class="space-y-3 mt-6 flex items-center justify-center flex-col">
+            <!-- Todo items will be rendered here -->
+        </div>
+    </div>
+  </body>
+
+  <script>
+    // DOM elements 
+    const task_btn = document.getElementById('task-btn') ; 
+    const task_input = document.getElementById('task-input') ; 
+    const todo_parent = document.getElementById('todo-parent') ; 
+    const date_input = document.getElementById('date-input') ; 
+    const time_input = document.getElementById('time-input') ; 
+
+    let todos = [] ; // Empty array state 
+    function addTodo() { 
+        todos.push({
+            title : task_input.value , 
+            date : date_input.value , 
+            time : time_input.value 
+        })
+        render() ; 
+    }
+
+    function deleteTodo(index) { 
+        todos.splice(index,1) ; 
+        render() ; 
+    }
+
+    function createTodoComponent(todo,index) { 
+        const div = document.createElement('div') ; 
+        const p = document.createElement('p') ; 
+        p.className = "text-lg font-medim" ; 
+        const button = document.createElement('button') ; 
+        button.innerHTML = 'Delete' ; 
+        button.className = "ml-4 px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded transition items-center"; 
+        button.onclick = () => { 
+            deleteTodo(index)
+        }
+        p.innerHTML = `<h1 class="text-2xl text-center"> ${todo.title} </h1> <span class="text-sm text-gray-400 ml-2">${todo.date} ${todo.time}</span>`;         
+        div.append(p) ; 
+        div.append(button) ;  
+        return div ; 
+    }
+
+    function render() { 
+        todo_parent.innerHTML = "" ; 
+        for(let i = 0 ; i < todos.length ; i++ ) { 
+            const element = createTodoComponent(todos[i] , i) ; 
+            todo_parent.appendChild(element) ; 
+        }
+    }
+  </script>
+</html>

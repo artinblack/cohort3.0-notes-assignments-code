@@ -1,0 +1,29 @@
+**1. Resume Order:**
+   - **Experience**
+   - **Projects**
+   - **Technical Skills**
+   - **Education**
+   - **Achievements**
+
+**2. Template:**
+   Use the [ATS-friendly template](https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs) from Overleaf for a clean and structured format.
+
+**3. Experience Section:**
+   - List jobs in reverse chronological order.
+   - Summarize each position with concise bullet points focusing on key responsibilities and achievements.
+
+**4. Projects Section:**
+   - Include project titles with a brief description.
+   - Add links to deployed projects and code repositories.
+
+**5. Technical Skills Section:**
+   - List your skills in programming languages, frameworks, libraries, and tools.
+
+**6. Education Section:**
+   - Mention your recent degree or graduation details.
+
+**7. Achievements Section:**
+   - Highlight key achievements with brief descriptions.
+
+**8. ATS Score:**
+   - Check your resume’s ATS score using [ResumeWorded](https://resumeworded.com/).
