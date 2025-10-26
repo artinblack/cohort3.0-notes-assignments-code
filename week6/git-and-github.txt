@@ -64,3 +64,9 @@ Git basic commmands
 - push => upload your commits to a git repo , like Github 
 - pull => download changes from a remote repo to your local repo 
 
+git init => initialize a git repository 
+git status => getting the current status 
+git commit -m "Commit message" => commit to the repository
+git remote -v => configure that there is a remote repository for this repo  
+git remote add origin "githublink.git" => add the local repo to the remote repo ( or the github repo )
+
