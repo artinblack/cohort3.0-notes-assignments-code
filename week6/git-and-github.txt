@@ -111,5 +111,5 @@ Git commands to resolve major conflicts
 - git diff => identify the differences between the state repositories or files 
 - git checkout => used to undo the changes made to the file, or for changing branches 
 - git reset --mixed => used to undo changes to the working directory and staging area 
-- git merge --abort => 
+- git merge --abort 
 - git reset 
