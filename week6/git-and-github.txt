@@ -92,3 +92,24 @@ Branching is the common thing used in the version control system
 
 asdfl;jasd;fljal;skdjl;kasjdfl;kjasdfl;kjasdl;kjal;skdfjl;kasjdfl;kasjdflk;jasdflkjasldk;al;skdfjl
 ;kasdjf;kljasdfl;jaslk;djlk;asdflk;ajsdfl;kjasdfkljlk;asdjflk;jasdfl;jalsk;djsal;kdkl;ajsdf
+
+Different type of merge conflicts 
+- while starting the merge process 
+    - If there are changes in the working directories stage area for the current project , merging won't start. 
+    - In this case , conflicts happen due to pending changes that need to be stabilized 
+
+- during the merge process
+    - When there is a conflict between the local branch and the branch being merged. 
+    - Git resolves as much as possible, but there are things that have to be resolved manually in the conflicted files 
+
+Occasionally , this process doesn't go smoothly . 
+If you changed the same part of the same file differently in the two branches you are merging , Git won't be able to merge them cleanly . If you fix for feature branch modified the same part of a file as the hotfix branch , you'll get a merge conflict
+git has'nt automatically created a new merge commit. It has paused the process while you resolve the conflict. If you want to see which files are unmerged at any point after a merge conflict, you can run git status : 
+
+Git commands to resolve major conflicts 
+- git log --merge => produce the list of commits that are causing the commits 
+- git diff => identify the differences between the state repositories or files 
+- git checkout => used to undo the changes made to the file, or for changing branches 
+- git reset --mixed => used to undo changes to the working directory and staging area 
+- git merge --abort => 
+- git reset 
