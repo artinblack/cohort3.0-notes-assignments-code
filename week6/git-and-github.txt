@@ -69,4 +69,26 @@ git status => getting the current status
 git commit -m "Commit message" => commit to the repository
 git remote -v => configure that there is a remote repository for this repo  
 git remote add origin "githublink.git" => add the local repo to the remote repo ( or the github repo )
+git clone "github link" => clone the git repo from github 
+git add index.html => stage the changes in the particular file or repository
 
+- when you are cloning a repository you are not only copying the code of the repository you are also cloning 
+
+branching
+- so far we have only looked in the master branch
+- multiple people working on a project so what you can do is keep the main code with you and create a copy of the code in the repository
+
+Master Branch - C1 - C2 - C3 
+( you want to add new features to your code ) 
+Feature Branch - C1 ( under C3 of master branch ) - C2 
+( once you have make sure that the changes that you have made are good ) 
+You can actually take these changes and put it back to the master branch 
+
+The process is called branching and merging 
+
+Imagine you have a bug to fix - then you will have to create a new branch called the hotfix branch from the master branch to fix the bugs and then merge the code to the master branch 
+
+Branching is the common thing used in the version control system 
+
+asdfl;jasd;fljal;skdjl;kasjdfl;kjasdfl;kjasdl;kjal;skdfjl;kasjdfl;kasjdflk;jasdflkjasldk;al;skdfjl
+;kasdjf;kljasdfl;jaslk;djlk;asdflk;ajsdfl;kjasdfkljlk;asdjflk;jasdfl;jalsk;djsal;kdkl;ajsdf
