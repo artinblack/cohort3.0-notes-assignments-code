@@ -1,0 +1,89 @@
+Context 
+
+- today we understand most basic way to do authentication in a Node.js app 
+
+What is authentication ? 
+- the process of letting users sign in / sign out of your website. Making sure the routes are protected and users can only get back to their own data and not the data from a different user
+
+Authentication workflow 
+- the user comes to your website 
+- the user sends a request to /signin with their username and password 
+- the user gets back a token 
+- in every subsequent request , the user sends the token to identify it self to the backend 
+
+Creating an express app 
+
+Creating an authenticated EP 
+- let's create an endpoint (/me) that returns their information 'only if they send their token' 
+- we are asking the user to send the token to the header to access the authenticated endpoint
+
+TOKENS vs JWT's 
+
+there is a problem with using stateful tokens. 
+
+Stateful 
+By stateful here, we mean that we need to store these tokens in a variable right now (and eventually in a database) . 
+
+Problem 
+The problem is that we need to send a request to the database every time the user wants to hit an authenticated endpoint
+
+the problem with token's is that we have to hit the database too much 
+
+what if this token itself spit out the username , encrypt the username and create the token from it 
+
+JWT's or json web tokens are a compact and self contained way to represent information between two parties . they are commonly used for authentication and information exchange in web applications
+
+JWT's are stateless - they contain all the information that is needed to authenticate the request, so the server does'nt need to store session data . All the data is stored in the token itself 
+
+Replace token logic with JWT's 
+
+Frontend --> /signup ( with username and password ) --> Backend ( stores the logic to the DB ) --> DB 
+
+Frontend --> /signin ( with username and password ) --> Backend ( checks if the username and password are present with the database and gives the Frontend/user the JWT token (converts the username to the JWT token) ) --> DB 
+
+
+Frontend --> /me with the JWT token --> Backend ( converts the JWT to the username and gets the /me page of the username ) --> DB the jwt hits the database to give the password back to the backend for other resources 
+
+it is not encryption it is called encoding 
+
+In simple 
+- the user will sign in with information and backend will produce and give the user a jwt token 
+- the user will user the jwt token to then access the other routes of the backend server
+--------------------------------------------------------------------------------------
+to issue the tokens we use the jwt , we need the password associated with it , the token generated and sent back to the user can be generated via various ways 
+jwts => very similar to encryption => it takes a key and converts it to random gibberish that you cannot understand and you can always decrypt it back using the same key ( decryption ) 
+
+harkirat => (secret) => encryptedharkirat => {(decode without secret the original payload) => harkirat / verify the token with the secret => harkirat   }
+verification -> checking that  I was the person who created the token verifying that you are harkirat not anybody else 
+------------ENCRYPTION -------------------- DECRYPTION ----------
+
+Comparision to a cheque - if you ever sign a cheque , you can show it to everyone and everyone can see that you are transferring $20 to a friend. But only the bank needs to verify before debiting the users account 
+
+JWT can be decoded by everyone 
+JWT can be verified by only the person who issued them ( using the JWT secret ) 
+
+JWT Verify:
+Purpose: Validates the authenticity and integrity of a JWT.
+Functionality: It performs several crucial security checks:
+Signature Verification: It verifies the token's signature using the secret key (for symmetric algorithms like HMAC) or public key (for asymmetric algorithms like RSA). This ensures that the token has not been tampered with since it was signed by the issuer.
+Claim Validation: It can validate various claims within the token, such as:
+Expiration (exp): Checks if the token has expired.
+Not Before (nbf): Ensures the token is not used before a specified time.
+Audience (aud): Verifies that the token is intended for the current recipient.
+Issuer (iss): Confirms the token was issued by a trusted entity.
+Security Implications: Verifying a JWT is essential for secure authentication and authorization, as it ensures the token's integrity and validity.
+
+
+Assignment : Creating an auth middleware 
+Can you try to create a middleware and auth that verifies if a user is logged in ? 
+MIDDLEWARE :- 
+Chain of methods that you can put between your request response cycle 
+A person sitting in the middle of your end client and the final ride that you are trying to access doing certain checks making sure that only people with legitimate access have acccess to the ride 
+
+ 
+Assignments for this week 
+- try to create a TODO application where 
+    - user can signin/signup
+    - user can create/delete/update TODO's 
+    - user can see their existing todos and mark them as done 
+    
