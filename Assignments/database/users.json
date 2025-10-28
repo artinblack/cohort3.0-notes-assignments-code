@@ -1,0 +1,26 @@
+[
+  {
+    "username": "aashray",
+    "password": "aashray2004",
+    "todos": []
+  },
+  {
+    "username": "aashray",
+    "password": "aashray12345",
+    "todos": []
+  },
+  {
+    "username": "aashray2004",
+    "password": "aashray2004",
+    "todos": [
+      {
+        "todo": "go to gym",
+        "id": 2
+      },
+      {
+        "todo": "go to gym",
+        "id": 3
+      }
+    ]
+  }
+]
