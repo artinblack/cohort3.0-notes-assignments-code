@@ -30,7 +30,8 @@ app.post('/signup',(req,res) => {
     
     const newuserdata = {
         username : username , 
-        password : password
+        password : password , 
+        todos : []
     }
 
     userdatabase.push(newuserdata) ; 
@@ -45,23 +46,145 @@ app.post('/signup',(req,res) => {
 })
 
 app.post('/signin',(req,res) => { 
+    const username = req.body.username ; 
+    const password = req.body.password ; 
 
+    const user = userdatabase.find((user) => user.username === username && user.password === password) ;
+
+    if(user) { 
+        const token = jwt.sign({
+            username : username 
+        },JWT_SECRET) ;
+        res.json({
+            token : token
+        })
+    } else { 
+        res.status(403).json({
+            msg : "Credentials are incorrect try again"
+        })
+    }
 })
 
-app.get('/gettodos',(req,res) => { 
+// AUTH MIDDLEWARE 
+function auth(req,res,next) { 
+    const token = req.headers.token ; 
+    const verifiedInformation = jwt.verify(token,JWT_SECRET) ; 
+    const verifiedUserName = verifiedInformation.username ; 
+    if(verifiedUserName) { 
+        req.username = verifiedUserName ; 
+        next() 
+    } else { 
+        res.json({
+            message : 'You are not logged in !!'
+        })
+    }
+}
 
+
+app.get('/gettodos',auth,(req,res) => { 
+    const verifiedUserName = req.username ; 
+    const user = userdatabase.find((user) => user.username === verifiedUserName) ; 
+    if(user) { 
+        res.json({
+            Your_todos : user.todos 
+        })
+    } else { 
+        res.status(404).json({
+            msg : "Can't get todos"
+        })
+    }
 })
 
-app.post('/addtodos',(req,res) => { 
+app.post('/addtodos',auth,(req,res) => { 
+    const verifiedUserName = req.username ; 
+    const user = userdatabase.find((user) => user.username === verifiedUserName) ; 
+    const addtodo = req.body.todo ; 
+    if(user) { 
+        const nextId = user.todos.length > 0 
+            ? Math.max(...user.todos.map(todo => todo.id)) + 1 
+            : 1;
 
+        const todopushed = {
+            todo : addtodo , 
+            id : nextId
+        }
+
+        user.todos.push(todopushed) ; 
+        
+
+        fs.writeFile(userdbpath,JSON.stringify(userdatabase,null,2),(err) => { 
+            if(err) { 
+                res.send("Database can't be  Updated") 
+            } else { 
+                res.send("Database updated")
+            }
+        })
+
+        res.json({
+            todoadded : user.todos
+        })
+    } else { 
+        res.status(404).json({
+            msg : "Can't add todos"
+        })
+    }
 })
 
-app.put('/modifytodo',(req,res) => { 
-
+app.put('/modifytodo/:id',auth,(req,res) => { 
+    const verifiedUserName = req.username ;  
+    const user = userdatabase.find((user) => user.username === verifiedUserName) ; 
+    const newtodo = req.body.todo ; 
+    const todoid = parseInt(req.params.id) ; 
+    if(user) { 
+        const todoexist = user.todos.find((todo) => todo.id === todoid) ; 
+        if(todoexist) {
+            const newtodoid = todoid - 1;  
+            user.todos[newtodoid] = {
+                todo : newtodo , 
+                id : todoid
+            }
+            fs.writeFile(userdbpath,JSON.stringify(userdatabase,null,2),(err) => { 
+            if(err) { 
+                res.send("Database can't be  Updated") 
+            } else { 
+                res.send("Database updated")
+            }
+        })
+        } else { 
+            res.json({
+                msg : "To Do Does not exist !!"
+            })
+        }
+    } else { 
+        res.status(404).json({
+            msg : "Can't modify todo "
+        })
+    }
 })
 
-app.delete('/deletetodo',(req,res) => { 
+app.delete('/deletetodo/:id',auth,(req,res) => { 
+    const verifiedUserName = req.username ; 
+    const user = userdatabase.find((user) => user.username === verifiedUserName) ;
+    const todoid = parseInt(req.params.id) ; 
 
+    if(user) { 
+        const todoexist = user.todos.find((todo) => todo.id === todoid) ; 
+        if(todoexist) { 
+            const newtodoid = todoid -1 ; 
+            user.todos.splice(newtodoid,1) ; 
+            fs.writeFile(userdbpath,JSON.stringify(userdatabase,null,2),(err) => { 
+                if(err) { 
+                    res.send("Database can't be  Updated") 
+                } else { 
+                    res.send("Database updated Todo deleted ")
+                }
+            })
+        } else { 
+            res.status(404).json({
+                msg: "Can't delete todos "
+            })
+        }
+    }
 })
 
 app.listen(3000) ; 
