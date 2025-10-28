@@ -82,6 +82,8 @@ A person sitting in the middle of your end client and the final ride that you ar
 
  
 Assignments for this week 
+- Conditionally render the logout or the signin/signup pages based on if the user is already logged in or not
+if I am logged in the page I should not see the sign in /sign up button , if I am logged out of the page then I should see the sign in / sign up button
 - try to create a TODO application where 
     - user can signin/signup
     - user can create/delete/update TODO's 
