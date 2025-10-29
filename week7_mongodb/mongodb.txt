@@ -1,0 +1,52 @@
+context : 
+- databases 
+- NoSql databases 
+- mongodb 
+- persist data in fullstack application 
+
+- creating a free mongodb cloud server 
+- connecting your full stack application to Mongodb 
+- defining the schema 
+- mongoose 
+- CRUD operations
+
+What are databases ? 
+- databases are organized collections of data that are structured to enable efficient storage, retrieval and management of information 
+- your backend stack can be node,go,rust your database stay static 
+- some databases are NoSQL , SQL 
+- user information
+- todo's of your todo app 
+- posts for facebook 
+- tweets for twitter 
+
+- backend will be stateless : there will be no information stored in backend
+- if your server is down then it is okay but if your database is down then you are screwed
+
+Mongodb and NoSQL databases 
+- nosql databases are a broad category of database systems that diverge from the traditional relational model used in the SQL database . 
+- they are designed to handle a variety of data models and workloads that may not fit nearly into the tabular schema of relational database . 
+
+Mongodb advantages ( nosql ) 
+- schema flexibility 
+- scalability 
+
+schema => what does the database look like ? 
+- todo application 
+    - users_table => email : string , password : string , name : string , age : integer 
+    - todos_table => title : string , done : boolean , deleted : boolean  
+
+MongoDB is schemaless 
+
+mongodb cluster => bunch of machines that are holding our data is called cluster of machines 
+
+collection => mongodb table 
+
+user collection and todo collection are connected by user id 
+
+whenever you have to create a relationship between collections make sure you have to store the id and not the full name and stuff 
+
+CRUD operations in mongodb refer to the basic operations you can perform on documents within a MongoDB database. CRUD stands for : 
+    - Create : Adding new documents to a collection
+    - Read : Retrieving documents from a collection 
+    - Update : Modifying existing documents in a collection
+    - Delete : Removing documents from a collection
