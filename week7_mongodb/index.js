@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt') ;
 const JWT_SECRET = 'aashraybhagtani' ; 
 
 const { UserModel , TodoModel } = require('./db') ; 
-mongoose.connect("mongodb+srv://admin:Aashray2004@cluster0.kivzyrs.mongodb.net/todo_app").then(console.log('Connected to database successfully')) ; 
+mongoose.connect("").then(console.log('Connected to database successfully')) ; 
 app.use(cors()) ; 
 app.use(express.json()) ; 
 
