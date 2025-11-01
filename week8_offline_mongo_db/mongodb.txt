@@ -1,0 +1,51 @@
+supreme court example 
+- you are getting a divorce angry person 
+- first you go to  local court , submit some docs and that go sit in some central database 
+- if some mishap happens in the local court / high court / supreme court 
+
+what is a database ? 
+- it is a place where data is stored persistently 
+- servers are transient , database is persistent 
+
+example of data stored in database :- 
+- for linkedin 
+    - user data 
+    - user posts 
+    - users connection relationships 
+    - messages 
+
+Get me my feed -> express ( does auth checks ) -> give me all posts for this user
+
+good question to have at this point 
+-> why don't we let the user hit the database directly ? 
+-> 
+
+1 database were are created using protocols that browsers don't understand 
+2 databases don't have granual access as a first class citizen . Very hard to do user specific access in them 
+3 there are some database(FIREBASE) that let's you get rid of the http server and try their best to provide granola access
+
+Databases usually allow access to 4 primitives 
+- create data 
+- read data 
+- update data 
+- delete data 
+popularly known as CRUD 
+
+let's see the API for the mongoose library 
+- eventually we will be using prisma ( industry standard ) 
+- mongoose , first you have to define the schema 
+    - counter intuitive 
+
+mongoose -> first step define your schema 
+
+mongodb -> schemaless 
+
+schema -> structure of the data that you are putting there 
+- users 
+    - email 
+    - password
+    - firstname
+    - city
+    - age 
+
+SQL -> structured query language 

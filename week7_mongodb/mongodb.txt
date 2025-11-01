@@ -50,3 +50,43 @@ CRUD operations in mongodb refer to the basic operations you can perform on docu
     - Read : Retrieving documents from a collection 
     - Update : Modifying existing documents in a collection
     - Delete : Removing documents from a collection
+
+mongoose is the connecting/communication library between mongodb database and the express.js backend
+
+Improvements 
+- password is not hashed 
+- a single crash ( duplicate email ) crashes the whole app 
+- add more endpoints ( mark todo as done ) 
+- add timestamp at which todo was created/the time it needs to be done by 
+- relationships in mongo 
+- add validations to ensure email and password are correct format 
+
+odm - object document mapper 
+
+Hashing password 
+- why should you hash passwords ? 
+    - password hashing is a technique used to securely store passwords in a way that makes them difficult to recover or misuse. Instead of storing the actual password, you store a hashed version of it . 
+
+salt - a popular approach to hashing passwords involves using a hashing algorithm that incorporates a salt - a random value added to the password before hashing. This prevents attackers from using precomputed tables ( rainbow tables ) to crack passwords . 
+
+example : my password 123123 
+
+123123 -> saltedpassword -> 123123asdfasdfasdf -> hashedpassword -> blahblahblahblah -> hashedpassword and saltedpassword stored in database
+----------------
+if some another person comes with the same password then 
+
+123123 -> saltedpassword -> 123123jkl;jkl;jkl; -> hashedpassword -> asdfasdfasdfasdfasdf -> hashedpassword and saltedpassword stored in db 
+--------------------
+
+during signin how will the server login 
+- the server will first bring in the salt of the password then it will take the password that the user gave during the signing in then it will convert the password into the hash and then compare the hash with the database password and check if the password is correct or not correct 
+
+bcrypt - cryptographic hashing algorithm designed for securely hashing passwrods . 
+incorporates a salt and is designed to be computationally expensive , making brute-force attacks more difficult. 
+
+Error handling 
+
+Input validation - zod is a library used for schema validation and parsing. It is designed to help developers define, validate and manage data structures in a type-safe manner 
+- your server should do something called input validation 
+
+zod assignment - check that the password has 1 uppercase character , 1 lowercase character , 1 spl character

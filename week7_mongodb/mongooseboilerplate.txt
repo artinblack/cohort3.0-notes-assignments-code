@@ -1,0 +1,52 @@
+const mongoose = require('mongoose');
+
+// 1. Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/myDatabase', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('Could not connect to MongoDB:', err));
+
+// 2. Define a Schema
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true
+  },
+  age: {
+    type: Number,
+    min: 0
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+// 3. Create a Model
+const User = mongoose.model('User', userSchema);
+
+// 4. Perform a simple operation (e.g., creating and saving a document)
+async function createUser(name, email, age) {
+  try {
+    const user = new User({ name, email, age });
+    await user.save();
+    console.log('User saved successfully:', user);
+  } catch (error) {
+    console.error('Error saving user:', error.message);
+  }
+}
+
+// Example usage:
+createUser('John Doe', 'john.doe@example.com', 30);
+createUser('Jane Smith', 'jane.smith@example.com', 25);
+createUser('John Doe', 'john.doe@example.com', 35); // This will likely throw a unique email error
