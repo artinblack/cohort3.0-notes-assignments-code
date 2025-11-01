@@ -49,3 +49,78 @@ schema -> structure of the data that you are putting there
     - age 
 
 SQL -> structured query language 
+
+mongoose the library doesn't let you put anything in the database , it says first tell me what is your schema 
+-user -> { 
+    firstname : "asdfasdf" , 
+    lastname : "adsfhasdf" , 
+}
+
+user.create({
+    firstname , 
+    lastname ,
+})
+
+the database is not strict the library is strict , mongodb is not strict mongoose is strict in terms of schema 
+
+- mongoose makes you define schema for things like autocompletions 
+- validating data before it goes to in the DB to make sure you are doing things right 
+- using schema in mongo makes it slightly less dangerous 
+
+relationships between two tables 
+- username : 
+- password : 
+- purchasedCourses : [
+    --------------------- course table reference 
+    array of individual courses that have been bought ( courseid ) 
+]
+
+const UserSchema = new mongoose.Schema({
+    username : String , 
+    password : String , 
+})
+
+const User = mongoose.model("User",UserSchema) ; 
+
+CREATE COMMAND
+
+User.create({
+    username : req.body.username ; 
+    password : req.body.password ; 
+})
+
+READ COMMAND
+
+User.findById("") ; 
+User.findOne({
+    username : "aashray.bhagtani@gmail.com" 
+})
+User.find({
+    username : "abc@abc.com"
+})
+
+UPDATE COMMAND 
+
+User.updateOne(
+    {"id":"1"} , 
+    { $push : { purchasedCourses : courseid }}
+)
+
+User.update({
+
+},{
+    premium : true 
+})
+
+DELETE COMMAND 
+
+User.deleteMany({}) 
+
+User.deleteOne({
+    username : "aashray.bhagtani@gmail.com" 
+})
+
+3 jargons to know in database 
+- cluster 
+- database 
+- table 
