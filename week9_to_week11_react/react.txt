@@ -1,0 +1,668 @@
+// import React, { useEffect, useState } from 'react'
+
+// const App = () => {
+  
+//   let [counterVisible , setCounterVisible] = useState(true) ; 
+
+//   useEffect(() => { 
+
+//     let clock = setInterval(() => { 
+//       setCounterVisible(c => !c) 
+//     },5000)
+
+//     return () => { 
+//       clearInterval(clock) ; 
+//     }
+
+//   },[])
+
+
+//   return (
+//     <div>
+//       <b>
+//         hi there 
+//       </b>
+//       { counterVisible ? <Counter></Counter> : null }
+//       {/* <Counter></Counter> */}
+//     </div>
+//   )
+// }
+
+// const Counter = () => { 
+
+//   const [count , setCount] = useState(0) ; 
+  
+//   useEffect(() => { 
+//     setInterval(() => { 
+//       setCount(function(mycount) {
+//         return mycount + Math.random()  ;
+//       }) ; 
+//     },1000) ; 
+//   },[])
+
+//   // function increaseCount() { 
+//   //   setCount(count + 1) ; 
+//   // }
+
+//   // function decreaseCount() { 
+//   //   setCount(count - 1) ; 
+//   // }
+
+//   // function resetCount() { 
+//   //   setCount(0) ; 
+//   // }
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       {/* <button onClick={increaseCount}>Increase count</button>
+//       <button onClick={decreaseCount}>Decrease count</button>
+//       <button onClick={resetCount}>Reset count</button> */}
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// relearning cleanup , useEffect . learning about dependency array 
+
+// import { useState , useEffect } from "react";
+
+// function App() { 
+//   const [count , setCount] = useState(0) ; 
+//   const [count2 , setCount2 ] = useState(0) ; 
+//   function increase() { 
+//     setCount(c => c+1) ; 
+//   }
+
+//   function decrease() { 
+//     setCount2(c => c-1) ; 
+//   }
+
+//   return <div>
+//     <Counter count={count} count2={count2}/> 
+//     <button onClick={increase}>Increase count </button>
+
+//     <button onClick={decrease}>Decrease count </button>
+//   </div>
+// }
+
+// function Counter(props) { 
+
+//   useEffect(() => { 
+//     console.log("mount") ; 
+
+//     return () =>  { 
+//       console.log("unmount")
+//     }
+//   },[]) ; 
+
+//   // 
+
+//   useEffect(() => { 
+//     console.log("count has changed") ; 
+//   },[props.count])
+
+//   // the above useeffect is waiting for props to change
+  
+//   return <div>
+//     Counter {props.count}
+//     <br />
+//     Counter 2 {props.count2}
+//   </div>
+// }
+
+// export default App ; 
+
+// function App() { 
+//   return (
+//     <div style={{ height : '100vh' , background : '#dfe6e9' , display : "flex " , justifyContent : "center"  , alignItems : "center"}}>
+//       <PostComponent/> 
+//     </div>
+//   )
+// }
+
+// const style = { 
+//   width : 200 , 
+//   backgroundColor : "white" , 
+//   borderRadius : 10 , 
+//   borderColor : "gray" ,
+//   display : "flex" , 
+// }
+
+// function PostComponent() { 
+//   return (
+//     <div style={style}>
+//     <div style={{display : "flex"}}>
+//       <img src={"https://media.licdn.com/dms/image/v2/D4D0BAQEKt1j7c9NOvA/company-logo_200_200/company-logo_200_200/0/1737036432985/100xdevs_logo?e=1763596800&v=beta&t=uo76vFZaosTzkUJ36B4oAb3MVSe2nUh0rQW3BjEGl90"} style={{
+//         width : 30 , 
+//         height : 30 , 
+//         borderRadius : 20 
+//       }}/>
+//       <div style={{fontSize : 12}}>
+//         <b>
+//           100x devs
+//         </b>
+//         <div>23,888 followers</div>
+//         <div>12m</div>
+//       </div>
+//       <div style={{fontSize : 12}}>
+//         Want to know how to win big? Check out how these folks won $6000 in bounties
+//       </div>
+//     </div>
+//     </div>
+//   )
+// }
+
+// export default App; 
+
+// props 
+
+// import React from 'react'
+
+// const Greeting = (props) => { 
+//   return <h1>
+//     hello , {props.name} !!
+//   </h1>
+// }
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Greeting name="aashray" />
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import React, { useState } from 'react'
+
+// const App = () => {
+//   const [isInvisible, setIsInvisible] = useState(false) ; 
+//   return (
+//     <div>
+//       <button onClick={() => setIsInvisible(!isInvisible)}>
+//         Toggle Message
+//       </button>
+//       {isInvisible && <p>
+//         This message is conditionally rendered   
+//       </p>}
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import { useState } from "react";
+// import PostComponent from "./Post";
+
+// const App = () => { 
+//   const [posts,setPosts] = useState([]) ; 
+  
+  
+
+//   function AddPost() { 
+//     setPosts([...posts,{
+//       name : "harkirat" , 
+//       subtitle : "1000 followers",
+      
+//     }])
+//   }
+
+//   return (
+//     <div style={{background : "#dfe6e9" , height : "100vh"}}>
+//       {/* <ToggleMessage/> */}
+//       <button onClick={AddPost}>
+//         Add Post
+//       </button>
+//       {posts.map(post => <PostComponent
+//     name={post.name} description={post.description} subtitle={post.subtitle} time={post.time}image={post.image}/>)}
+//     </div>
+//   )
+// }
+
+// // const ToggleMessage = () => { 
+// //   const [notificationCount , setNotificationCount] = useState(0) ; 
+// //   // defining a new state variable 
+// //   // when the value of a state variable changes , 
+// //   // the component that uses the state variable re-renders  
+
+   
+
+// //   return(
+// //     <div>
+// //       <button onClick={() => setNotificationCount(notificationCount + 1)}>
+// //         Increase count  
+// //       </button>
+// //       <p>
+// //         {notificationCount}
+// //       </p>
+// //     </div>
+// //   )
+// // }
+
+// export default App ; 
+
+// import React, { useState } from 'react'
+
+// const App = () => {
+//   const [count , setCount] = useState(1)  ; 
+
+//   function increaseCount() { 
+//     setCount(count + 1) ; 
+//   }
+  
+//   setCount()
+
+//   return (
+//     <div>App</div>
+//   )
+// }
+
+// export default App
+
+// const Card = ({children}) => { 
+//   return ( 
+//     <div>
+//       Hello
+//       {children}
+//       how are you ??
+//     </div>
+//   )
+// }
+
+// const App = () => { 
+//   return ( 
+//     <div>
+//       <Card>
+//         <h2>Card title</h2>
+//         <p>This is some content</p>
+//       </Card>
+//     </div>
+//   )
+// }
+
+// export default App ; 
+
+- this is the foundation for react 
+- understanding react from examples 
+
+jargon we'll learn today 
+- jsx 
+- class vs className 
+- static vs dynamic websites 
+- state 
+- components 
+- re-rendering 
+
+why do you need react ? 
+- for static websites you don't need websites
+- for dynamic websites, these libraries make it easier to do DOM manipulation
+
+react is just an easier way to write normal HTML/CSS and JS it is a new syntax , that under the hood gets converted to HTML,CSS and JS 
+
+why react ? 
+- people realized it is harder to do DOM manipulation the conventional way 
+- before react there were many frameworks 
+- eventually vuejs created a new syntax to do frontends 
+- the react compiler convert the code to HTML/CSS/JS 
+
+problem with dom approach 
+- too much code you have to write as the developer 
+- as your app scales , this gets harder and harder 
+
+static - no content on a page is never changing synchronously or asynchronously 
+dynamic - the content on a page is continuously changing or reappearing with user actions and the user is able to play with the websites 
+
+Some react jargon 
+- to create a react app , you usually need to worry about two things 
+
+State :- Recoil , redux , creators of frontend frameworks realized that all websites can effectively be divided in to two parts 
+- it is an object that represents the current state of the application it represents the dynamic things in your application ( things that change ) for example , the value of the counter 
+- the state variable is the number of the counter 
+- anything on the website that changes is called state 
+- {
+    count : 4 
+}
+- anything that changes on the website is the state of the code and website 
+- linkedin - notifications number is the state 
+- {
+    topbar : {
+        home : 0 , 
+        myNetwork : "999+" 
+        jobs : 0 , 
+        messaging : 0 , 
+        notifications : 10 
+    }
+}
+- the way react is written is that when you change anything on the above object the frontend (html) will also change the home features making it dynamic 
+- it makes your code very readable because the developer just needs to change your state 
+
+Components :- Component library 
+- how a DOM element should render , given a state it is a re-usable , dynamic , code snippet that changes given the state 
+- react is a dom updation engine 
+- diff calculator basically  
+- when the state changes the component will also rerender 
+- this button is a component it takes the state as an input and is supposed to render accordingly 
+- state + component = react website 
+- a state change triggers a re-render 
+- a re-render represents the actual DOM being manipulated when the state changes 
+You usually have to define all your components once and then all you have to do is update the state of your app, React takes care of re-rendering your app
+virtual dom - react taking care of the dom manipulation 
+
+- Jsx syntax is a cleaner way to write components
+- a component return's xml 
+
+JSX stands for javascript xml . It is a syntax extension for JavaScript , most commonly used with React , a popular javascript library for building user interfaces. JSX allows you to write HTML like code directly within JavaScript. This makes it easier to create and manage the user interface in React applications . 
+
+useState hook - creates and updates the state of a component/react website 
+
+react part 2 
+- useState 
+- useeffect 
+- props 
+- conditional rendering 
+- children 
+- lists and keys 
+- inline styling 
+- class based vs functional components 
+- error boundary 
+- fragment 
+
+- npm create vite@latest
+
+- useState hook 
+    - is a hook that lets you add state to functional components . it returns an array with the current state and a function to update it. 
+
+- hooks 
+    - functions that allow you to "hook into" react state and lifecycle features from functional components
+
+- component 
+    - a react component is a function that returns you a html 
+
+react calls these component functions whenever a state variable changes I repeat count state variable anytime is changes whenever setCount changes we say that the app re-rendered
+
+- you need to hooking into the lifecycle of react 
+- the first render of a component is the lifecycle of react  
+
+- we want to run set interval whenever the component mounts we don't want to re render 
+
+- useEffect() -> all the logic that I want to run on the mounting of the component 
+- we need to guard our setInterval from re-renders 
+
+- using the functional form setCount(c = c+1) inside the interval ensures you always update from the latest state . that is 1,2,3,4,5,6, constantly changing , c gets the current value and updates it with c+1 saving it in c 
+
+- if you use setCount(count + 1)  the closure captures the value of count at the time the effect ran and will produce a stale value that is zero 
+
+[] -> initial render 
+
+- we use count => count + 1 because of this dependency array 
+
+- we have to go through cleanup and dependency array 
+- after this you are done with two biggest hooks in react 
+
+------------------------------------------------------------------
+
+- conditional rendering 
+    - kabhi kabhi mujhe ye counter render karna hai kabhi nahi karna hai 
+    - i want to render this counter component sometimes don't want to render this sometimes
+
+- cleaning - stopping the clock if there is no component mounted clearInterval is used to stop a clock 
+we want to stop the clock when we are unmounting a component
+
+- cleanup is something that you have to do as an application developer as otherwise there will be performance issues 
+
+c => c + 1 
+
+c comes in as the input and c+1 saves the new value in c as the output 
+
+whenever a state variable changes you might want to run some logic ( useEffect) 
+that is where this dependency array comes into the picture 
+
+I want to run some logic whenever the count logic is changed / re-rendered 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 starting a react project locally 
+
+vite 
+    - npm create vite@latest 
+    - the build tool for the web 
+    - vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. 
+        - hot module replacement 
+        - convert ts/js into a bundle 
+
+react 
+    - the root id is controlled by react
+    - application should be created so that they can be used by multiple developers
+        - structuring your app into components
+        - defining a state of your application 
+
+components
+    - in react , components are the building blocks of ui 
+    - split the ui into independent , reusable pieces , that can be self-contained HTML elements. 
+
+props 
+    - props are the way to pass down data from one component to another in React 
+
+useState 
+    - you can render different components or elements based on certain conditions 
+    - useState is a hook that lets you add state to the functional components . It returns an array with the current state and a function to update/set it . 
+    - defining a new state variable - const [count,setCount] = useState(false) ; 
+    - when the value of a state variable changes the component that uses the state variable re-renders 
+    - we cannot use a normal variable because the component is not re-rendering because we haven't used a state variable 
+    - dynamic part of any webpage - state 
+
+useEffect 
+    - before we understand useEffect , lets understand SIDE EFFECTS 
+    - side effects 
+        - side effects are operations that interact with the outside world or have effects beyond the component's rendering 
+            - fetching data from api 
+            - modifying the dom manually 
+            - subscribing to events 
+            - starting a clock 
+        - these are called side effects because they don't just compute output based on the input - they affect things outside the component itself. 
+    - problem in running side effects in react components 
+        - react would run that code every time the component renders. This can lead to :   
+            - unnecessary or duplicated effects ( like multiple API calls ) 
+            - inconsistent behavior ( side effects might happen before rendering finishes )
+            - performance issues ( side effects could block rendering or cause excessive re-rendering)
+    - mount 
+        - first time the component is put up on screen
+    - the useEffect let's you perform side effects in functional components in a safe , predictable way : 
+    - [] - dependency array 
+        - the second argument to the useEffect hook , this effect will run on mount , because the array is empty 
+        - what if you could write another effect that changes whenever the count changes  
+    - return function() - cleanup 
+        - unsubscribing from an event or clearing timers. 
+
+children
+    - the children prop allows you to pass elements or components as props to other Components
+
+lists 
+    - when rendering  lists , each item should have a unique key prop for React to track changes efficiently
+
+key 
+    - react can understand the differences clearly 
+    - rendering will be easy of long component lists 
+    - each child in a list should have a unique key prop. 
+
+inline styles 
+    - inline styling in react allows you to apply CSS styles directly to elements using a javascript object
+
+class based vs functional Components    
+    -   earlier react code was written using class based Components. Slowly functional components were introduced and today they are the oncs you will see everywhere
+    -   class   components are classes that extend React.Component , while functional components are simpler and can use Hooks 
+
+lifecycle events 
+    - lifecycle events refer to the specific points in a component's life where you can execute code in response to changes or actions . 
+    - these events will help you manage tasks such as data fetching , subscriptions and cleaning up resources
+
+error boundary 
+    - error boundary are react components that catch JavaScript error's in their child component tree and display a fallback UI 
+
+fragment
+    - in react , a component can return a single parent element, but it can contain multiple children within that single parent 
+    - <> </>
+
+single page applications
+    - single page applications are web applications that load a single HTML page and dynamically update that page as the user interacts with the app . this approach allows for a smoother ux compared to MPA's , where each interaction often requires a full page reload 
+    - I am fetching the html not the whole page 
+
+router 
+    - allows the application to make routes in a single page application
+
+layout 
+    - Absolute route path "/neet/online-coaching-class-11" nested under path "/a" is not valid. An absolute child route path must start with the combined path of all its parent routes.
+    - let you wrap every route inside a certain component ( think headers and footers ) 
+
+CODE :- 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// import './App.css' ; 
+import { BrowserRouter , Routes , Route , Link, useNavigate, Outlet} from 'react-router-dom' 
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/a' element={<Layout/>} >
+          <Route path='/neet/online-coaching-class-11' element={<Class11Program/>}/>
+          <Route path='/neet/online-coaching-class-12' element={<Class12Program/>}/>
+          <Route path='/' element={<Landing/>}/>
+          <Route path='*' element={<ErrorPage/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+function Layout() { 
+  return <>
+      <Link to="/" >Allen</Link>
+      |
+      <Link to="/neet/online-coaching-class-11">Class 11</Link>
+      |
+      <Link to="/neet/online-coaching-class-12">Class 12</Link>
+
+      <Outlet/>
+
+      <div>
+        Footer code
+      </div>
+  </>
+}
+
+function ErrorPage() { 
+  return <div>
+    Page not found !!
+  </div>
+}
+
+function Class11Program() { 
+  return <div>
+    NEET programs for class 11th 
+  </div>
+}
+
+function Landing() { 
+  return <div>
+    Welcome to allen website 
+  </div>
+}
+
+function Class12Program() { 
+  const navigate = useNavigate() ; 
+  
+  function redirectUser() { 
+    navigate('/') ; 
+  }
+  
+  return <div>
+    NEET programs for class 12th 
+    <button onClick={redirectUser}>
+      Go back to the landing page 
+    </button>
+  </div>
+}
+
+export default App
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+useRef()
+    - useRef is a hook that provides a way to create a reference to a value or a DOM element that persists across renders but does not trigger a re-render when the value changes .
+    - usecases 
+        - focusing on an input box
+        - scroll to bottom 
+    - you want to update the value but you don't want the component to rerender 
+
+Rolling up the state , unoptimal unoptimal re-renders 
+    - as your application grows , you might find that multiple components need the access to the same state 
+    - instead of duplicating state in each component , you can lift the state up to the LCA allowing the common ancestor to manage it . 
+    - App 
+        - Light 
+            - Light bulb
+            - Light switch 
+    - if the light bulb and switch need a common state you can store it in light component which is the lowest common ancestor 
+
+Prop drilling 
+    - occurs when you need to pass down from a higher level component down to a lower level component that is several layers deep in the component tree. This often leads to the following issues : 
+        - complexity 
+            - you may have to pass props through many intermediate components that don't use the props themselves , just to get them to the component that needs them. 
+        - maintenance 
+            - it can make the code harder to maintain , as changes in the props structure require updates in multiple components 
+
+Context API 
+    - Application Programming Interface 
+    - the context api is a powerful feature in React that enables you to manage state across your application more effectively, especially when dealing with deeply nested components 
+    - the context api provides a way to share values ( stae , functions ,etc) between components without having to pass props down manually at every level. 
+    - Jargon 
+        - context 
+            - this is created using React.createContext(). it serves as a container for the data you want to share 
+        - provider
+            - this component wraps part of your application and provides the context value to all its descendants
+        - consumer 
+            - this component subscribes to context changes. It allows you to access the context value ( using useContext hook ) 
+
+Introducing Recoil 
+    - to minimize the number of re-renders and ensure that only components that are subscribed to a value render , state management was introduced 
+    - there are many libraries that let you do state management : 
+        - mobx 
+        - recoil 
+        - redux
+
+Custom Hooks 
+    - a powerful feature that allows you to encapsulate and reuse stateful logic across different components. They are essentially javascript functions that can use React hooks internally. 
+    - they are essentially javascript functions that can use React hooks internally. 
+    - by creating custom hooks , you can abstract away complex logic , making your components cleaner and more manageable 
+    - why use custom hooks ? 
+        - reusability 
+        - separation of concerns 
+
+usePrev 
+    - one thing about react it returns first then the effect get's called later 
+
+Recoil 
+    - in this section , we will be learning about recoil , one of the many state management libraries in react 
+    - recoil has been ditched by meta no need to learn instead 
+    - purpose of libraries - make your life easier 
+    - introducing recoil 
+        - a state management library for react that provides a way to manage global state with finegrained control 
+        - recoil minimizes unnecessary renders by only re-rendering components that depend on changed atoms
+    - key concepts of recoil 
+        - atoms 
+        - selectors 
+    - let's create a similar counter application . It should have two buttons ( increment buttons , decrement buttons ) that increases/decreases 
+    - atom 
+        - atoms are units of state that can be read from and written to from any component . When an atom's state changes ,all components that subscribe to that atom will re-render 
+
+
+Zustand 
+    - store - create a store with the help of a custom hook 
+    - use the custom hook to call any state variable / function / primitives in the component
+
+react has 
+    - custom hook libraries 
+    - state management libraries 
+    - component libraries

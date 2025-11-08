@@ -1,0 +1,21 @@
+things to know in a frontend framework 
+- flex 
+- grids 
+- responsiveness 
+- background Color , text color , hover 
+
+display - flex 
+    - all the children appear next to each other 
+
+tailwind is mobile first design 
+    - sm:bg-blue bg-red - agar ap small se upar gaye then the bg color is blue , agar ap small se niche gaye  then bg color is red 
+
+as soon as i go above mobile span 5 each col (3) , sm: - ka code basically big screen me ayega tabtak tum small screen tak lo , uske baad normal code ayega without any sm 
+
+
+md - md to xl 
+sm - sm to xl 
+lg - lg to xl 
+
+hidden md:block - initially it will be hidden from md to xl it will be in block 
+

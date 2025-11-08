@@ -1,0 +1,13 @@
+tailwind - manu arora - v4 
+- basic and fundamentals of css 
+- basics of tailwind css 
+- responsive design fundamentals 
+- theming and variables
+- arbitrary values w-[42]
+- n number of properties 
+- svg animations ( motion )  
+- best practices 
+- recreating some cool websites with tailwind and motion 
+- final project 
+- how to be creative with designs - where to look for inspirations
+
