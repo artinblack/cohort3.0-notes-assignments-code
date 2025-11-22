@@ -11,3 +11,24 @@ tailwind - manu arora - v4
 - final project 
 - how to be creative with designs - where to look for inspirations
 
+Why even tailwindcss at all ? 
+	- rapid prototyping 
+	- go to playground prototyping is easy 
+	- utility based framework
+	- copy pasting 
+	- any website which uses tailwind 
+
+Websites to copy another websites 
+	- landing folio 
+	- coolors.co 
+	- landingfolio.com 
+	
+via-[var(--primary-color)] 
+
+theming helps with branding 
+
+task 
+copy keyboard component
+ui.aceternity.com
+
+Bhot sara code karo , bhot kaam karo aur bhot paise kamao goal dimag me rakh kar paise chapna 

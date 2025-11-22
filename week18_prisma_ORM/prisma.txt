@@ -1,0 +1,4 @@
+Step 1 - what are orms 
+
+- boring official definition 
+    - orm stands for object relational mapping 
