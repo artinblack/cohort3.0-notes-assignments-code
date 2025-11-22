@@ -1,0 +1,220 @@
+Step 1 - Types of databases 
+    - what all we will learn today 
+        - simple - SQL vs NoSQL , how to create Postgres databases, How to do CRUD on them . 
+        - advance - relationships , joins , transactions 
+    
+    - there are a few types of databases , all service different types of use-cases 
+        - nosql databases 
+            - store data in a schema-less fashion. Extremely lean and fast way to store data 
+            - examples - mongodb 
+            
+        - graph databases 
+            - data is stored in the form of graph . specially useful in cases where relationships need to be stored ( social networks ) 
+            - examples 
+                - Neo4j 
+        
+        - vector databases 
+            - stores data in the form of vectors 
+            - useful in machine learning 
+            - examples 
+                - pinecone 
+        
+        - sql databases 
+            - stores data in the form of rows 
+            - most full stack applications will use this 
+            - examples 
+                - Postgres
+                - mysql
+
+Step 2 - Why not NoSQL
+
+- mongodb
+- as your app grows ,this property makes it very easy for data to get corrupted 
+
+problems 
+    - can lead to inconsistent database 
+    - can cause runtime errors 
+    - is too flexible for an app that needs strictness 
+
+upsides 
+    - can move very fast 
+    - can change schema very easily 
+
+Step 3 - Why SQL ? 
+    - sql databases have a strict schema . they require you to 
+        - define your schema 
+        - put in data that follows that schema 
+        - update the schema as your app changes and perform migrations 
+
+    - database migrations for upscaling 
+
+
+    - so there are 4 parts when using an SQL database ( not connecting it to Node.js, just running it and putting data in it. )
+        - running the database 
+        - using a library that let's you connect and put data in it . 
+        - creating a table and defining it's schema 
+        - run queries on the database to interact with the data ( Insert/Update/Delete )
+
+
+Step 4 - Creating a database 
+    - you can start 
+        - neon db 
+    
+    - connection string 
+        - postgresql://postgres:mysecretpassword@localhost:5432/postgres?sslmode=disable 
+
+Step 5 - Using a library that let's you connect and put data in it 
+    - psql 
+        - it is a terminal based front end to postgresql. it provides an interactive command line interface to the Postgresql database 
+        - with psql , you can type in queries interactively , issue them to PostgresQL and see the query results
+    - pg  
+        - pg is a Node.js library that you can use in your backend app to store data in the postgres DB ( similar to mongoose ) 
+        - we will be installing this eventually in our app 
+
+Connection string 
+    - postgresql://username:password@host/database 
+
+postgresql://postgres:mysecretpassword@localhost:5432/postgres
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+PRIMARY KEY - column or set of columns in a database table that uniquely identifies each row 
+
+1 CREATE TABLE users : initiation the creation of a new table 
+2 id SERIAL PRIMARY KEY : serially increase if user has not given anything 
+3 email VARCHAR(100) UNIQUE NOT NULL : cannot be repeated , cannot be empty , VARIABLE CHARACTER   
+4 password VARCHAR(100) NOT NULL : can be repeated  , cannot be empty , VARIABLE CHARACTER
+5 created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+
+the auto increment counter runs even for wrong queries
+
+Step 7 - Interacting with the database 
+    - there are 4 things you'd like to do with a database
+    - INSERT 
+        - insert into  users ( username , email , password ) values ( "username_here" , "user@example.com" , "user_password" ) ; 
+
+    - UPDATE 
+        - update users set password = 'new_password' where email = 'user@example.com' ; 
+    
+    - DELETE 
+        - delete from users where id = 1 ; 
+    
+    - SELECT 
+        - select * from users where id = 1 ; 
+
+psql 'postgresql://neondb_owner:npg_DK2kAF1gBuqs@ep-crimson-heart-aha420tc-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+
+Step 8 - how to do queries from a Node.js app ? 
+    - in the end , postgres exposes a protocol that someone needs to talk to be able to send these commands 
+    - psql is one such library that takes commands from your terminal and sends it over to the database 
+    - to do the same in a node.js , you can use one of many "Postgres clients"
+    - pg Library    
+        - non-blocking postgres client for Node.js 
+
+SQL Injection - user can send abnoxious things to your db , injecting it with corrupt data ( queries that might corrupt your data ) , the user trying to inject it's own sql into your database 
+
+prevention 
+
+const insertQuery = insert into users ( username , password , email ) values ( $1 , $2 , $3 ) ; 
+
+const response = await pgClient.query(insertQuery , [username , email, password])
+
+JOBS
+    - tier 3 highest 8 lpa 
+    - NSIT - 70% usa 30% india 
+    - 1 year experience 
+
+CODING ACHE SE SIKH JAO
+
+Step 10 - relationships and transactions
+
+- relationships let you store data in different tables and relate it with each other 
+
+relationships in mongodb 
+    - since mongodb is a nosql database , you can store any shape of data in it 
+    - it i ask you to store a users detail along with their address , you can store it in an object that has the address details 
+
+relationships in sql 
+    - since sql can not store objects as such , we need to define two different tables to store this data in 
+    - foreign key 
+
+this is called a relationship 
+
+users 
+    id username email password 
+    1  harkirat ajsdf asdjfkjk 
+
+address 
+    id user_id city country street pincode  
+    1   1      chd  india   22      160066
+
+when defining the table , you need to define the relationship 
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY , 
+    username VARCHAR(50) UNIQUE NOT NULL , 
+    email VARCHAR(255) UNIQUE NOT NULL ,
+    password VARCHAR(255) NOT NULL , 
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP , 
+)
+
+CREATE TABLE addresses (
+    id SERIAL PRIMARY KEY , 
+    user_id integer not null , 
+    city varchar(100) not null , 
+    country varchar(100) not null , 
+    street varchar(255) not null , 
+    pincode varchar(20) , 
+    created_at timestamp with time zone default current_timestamp , 
+    foreign key (user_id) references users(id) on delete cascade , 
+)
+
+whenever any entry from the users is deleted the address of the user_id should also delete 
+
+one to many - one entry in the users table can have many entries 
+normalization 
+
+many to one 
+decomposing 
+
+what normal form is the database 
+
+there can be multiple foreign keys 
+
+Step 11 - joins 
+    - what's hard is joining data from two or more tables together 
+    - Approach 2 ( using joins ) 
+        - SELECT users.id , users.username , users.email , addresses.city , addresses.country , addresses.street , addresses.pincode FROM users JOIN addresses ON users.id = addresses.user_id 
+        WHERE users.id = '1' ; 
+    - user details with address for ID 1 
+    - joins are expensive query 
+
+    - Standard interview questions 
+    - types of joins 
+        - inner join 
+            - returns rows when there is at least one match in both tables . if there is no match , the rows are not returned . it's the most common type of join . 
+            - USE CASE :- find all the users with their addresses . if a user hasn't filled their address , that user shouldn't be returned 
+        - left join 
+            - returns all rows from the left table , and the matched rows from the right table 
+            - USE CASE :- to list all users from your database along with their address information ( if they've provided it ) , you'd use a LEFT join . users without an address will still appear in your query result, but the address fields will be NULL for them.
+        - right join 
+            - returns all rows from the right table , and the matched rows from the left table
+            - USE CASE :- given the structure of the database a RIGHT join would be less common since the address table is unlikely to have entries not linked to a user due to the foreign key constraint . however if you had a situation where you start with the addresses table and optionally include user information , this would be the theoretical use case .  
+        - full join 
+            - returns rows when there is a match in one of the tables . It effectively combines the result of both LEFT JOIN and RIGHT JOIN 
+            - USE CASE :- a FULL JOIN would combine all records from both users and addresses, showing the relationship where it exists. Given the constraints , this might not be as relevant because every address should be linked to a user. but if             
+
+const client = new Client(//neonlink//) ; 
+
+client.connect() ; 
+
+client.query(//pg query// , [// pg variables //]) ; 
+
+REST ARE SQL AND POSTGRESQL TOPICS 
+

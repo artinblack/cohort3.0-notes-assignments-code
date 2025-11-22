@@ -1,0 +1,126 @@
+supreme court example 
+- you are getting a divorce angry person 
+- first you go to  local court , submit some docs and that go sit in some central database 
+- if some mishap happens in the local court / high court / supreme court 
+
+what is a database ? 
+- it is a place where data is stored persistently 
+- servers are transient , database is persistent 
+
+example of data stored in database :- 
+- for linkedin 
+    - user data 
+    - user posts 
+    - users connection relationships 
+    - messages 
+
+Get me my feed -> express ( does auth checks ) -> give me all posts for this user
+
+good question to have at this point 
+-> why don't we let the user hit the database directly ? 
+-> 
+
+1 database were are created using protocols that browsers don't understand 
+2 databases don't have granual access as a first class citizen . Very hard to do user specific access in them 
+3 there are some database(FIREBASE) that let's you get rid of the http server and try their best to provide granola access
+
+Databases usually allow access to 4 primitives 
+- create data 
+- read data 
+- update data 
+- delete data 
+popularly known as CRUD 
+
+let's see the API for the mongoose library 
+- eventually we will be using prisma ( industry standard ) 
+- mongoose , first you have to define the schema 
+    - counter intuitive 
+
+mongoose -> first step define your schema 
+
+mongodb -> schemaless 
+
+schema -> structure of the data that you are putting there 
+- users 
+    - email 
+    - password
+    - firstname
+    - city
+    - age 
+
+SQL -> structured query language 
+
+mongoose the library doesn't let you put anything in the database , it says first tell me what is your schema 
+-user -> { 
+    firstname : "asdfasdf" , 
+    lastname : "adsfhasdf" , 
+}
+
+user.create({
+    firstname , 
+    lastname ,
+})
+
+the database is not strict the library is strict , mongodb is not strict mongoose is strict in terms of schema 
+
+- mongoose makes you define schema for things like autocompletions 
+- validating data before it goes to in the DB to make sure you are doing things right 
+- using schema in mongo makes it slightly less dangerous 
+
+relationships between two tables 
+- username : 
+- password : 
+- purchasedCourses : [
+    --------------------- course table reference 
+    array of individual courses that have been bought ( courseid ) 
+]
+
+const UserSchema = new mongoose.Schema({
+    username : String , 
+    password : String , 
+})
+
+const User = mongoose.model("User",UserSchema) ; 
+
+CREATE COMMAND
+
+User.create({
+    username : req.body.username ; 
+    password : req.body.password ; 
+})
+
+READ COMMAND
+
+User.findById("") ; 
+User.findOne({
+    username : "aashray.bhagtani@gmail.com" 
+})
+User.find({
+    username : "abc@abc.com"
+})
+
+UPDATE COMMAND 
+
+User.updateOne(
+    {"id":"1"} , 
+    { $push : { purchasedCourses : courseid }}
+)
+
+User.update({
+
+},{
+    premium : true 
+})
+
+DELETE COMMAND 
+
+User.deleteMany({}) 
+
+User.deleteOne({
+    username : "aashray.bhagtani@gmail.com" 
+})
+
+3 jargons to know in database 
+- cluster 
+- database 
+- table 

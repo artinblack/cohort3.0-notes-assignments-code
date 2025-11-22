@@ -1,0 +1,10 @@
+Second brain app 
+
+    const reqbody = z.object({
+        username : z.string().min(3).max(100) ,
+        password : z.string().max(3).max(100) 
+    })
+    
+    type reqbodytype = z.infer<typeof reqbody> 
+    
+    const { username , password } : reqbodytype = req.body

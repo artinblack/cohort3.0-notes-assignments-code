@@ -1,3 +1,0 @@
-Authentication , JWT's and try/catch block 
-
-- using real world examples 

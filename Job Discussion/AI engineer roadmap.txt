@@ -1,0 +1,105 @@
+applied AI and AI research 
+- applied engineer 
+
+AI roadmap 
+- core AI 
+    - build Models
+- applied AI 
+    - building on top of AI apis , AI agents , MCP's 
+
+the Problem 
+- new tools dropping every couple of weeks 
+- chatgpt , claude , gemini , agents , rag , fine tuning 
+- where do you start ? 
+- everyone says something different 
+
+Python fundamentals 
+- conditional 
+- loops 
+- classes and objects 
+- common libraries 
+
+Classical ML 
+- regression / classification 
+- clustering 
+- evaluation : accuracy , recall , precision , F1 score etc 
+- cross-validation , train-test split 
+
+Deep Learning 
+- neural network 
+- backdrop 
+- mlps 
+- activation function
+- loss function  
+- optimizers 
+- library - pytorch 
+
+Explore different paths 
+- CV ( computer vison )
+- NLP natural language processing ( preprocessing )
+- RL reinforcement Learning ( MDP's )
+- Speech and audio processing 
+
+Transformers 
+- internals 
+- data flow 
+- positional embeddings 
+- attention mechanism 
+- followed by latest advancements ( MoE's ) 
+
+Large Language Models 
+- pre training ( base model , massive data ) 
+- mid training ( domain specific knowledge , continual pretraining ) 
+- post training ( instruct tuning , RLHF , test time compute ) 
+
+Finetuning 
+- making model work best 
+- unsloth , TRL 
+- LoRa , QLoRA , adapters 
+
+Comparatively Easy Stuff 
+- working with LLM api's 
+    - prompt engineering 
+    - function calling 
+
+Embeddings and vector databases 
+- embeddings
+- similarity metrics
+- indexing 
+- retrieval 
+
+RAG 
+- document loading , preprocessing
+- chunking stratergies 
+- reranking 
+- hybrid search 
+- evaluations 
+
+AI agents 
+- anything that can perceive reason and act 
+- agent fundamentals 
+- tool use / function calling 
+- planning , memory 
+- multi agent systems 
+- frameworks : langgraph , camel etc 
+
+MCP 
+- connecting agents to tools via MCP 
+- oAuth & authorization 
+- DB access , API integration , code execution 
+
+MLOps & Prod 
+- experiment tracking 
+- Docker k8s
+- inference optimization : vLLM , TensorRT , ONNX 
+- monitoring 
+
+Takeaway 
+- being uptodate with latest research
+- always keep on learining new things 
+- rapid development - adapt fast 
+
+- start building a project 
+
+- you need to be a rapid developer 
+- new tech fast , integrate fast , build project on top of it 

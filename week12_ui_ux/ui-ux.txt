@@ -1,0 +1,114 @@
+UI/UX primitives 
+- basics : typography 
+- basics : colors 
+- introduction to ui/ux 
+- user interfaces ( ui ) 
+- user experiences ( ux ) 
+- ui/frontend designing
+- ui/frontend development 
+- web interactions
+- branding ( good to know ) 
+- resources 
+
+basics : typography 
+    - typeface is the design of the letters . font refers to a specific style or weight within that typeface ( eg Poppins bold 16px ) 
+    - serif fonts 
+        - small lines attached to the end of strokes in letters .
+        - times-new roman , georgia , merriweather
+    - sans-serif fonts
+        - clean , modern and lack the "feet" at the end of strokes 
+        - helvetica , arial 
+    - script fonts 
+        - mimic handwritings or calligraphy and are decorative in nature . 
+        - impact , bebas neue 
+    - monospace fonts 
+        - refers to the thickness of each character in of the font . 
+    
+    - font weight 
+        - thickness of each character in of the font 
+    
+    - typography jargon 
+        - leading - line height 
+            - too tight makes it hard to read 
+            - too loose makes the text disjointed 
+            - ideal - 1.5 to 1.75 times the font size is typically ideal . 
+        - tracking - letter spacing 
+            - 0-3%
+            - the space between characters in a block of text , affecting the overall density of text.
+        - kerning
+            - the space between specific pairs of letters to make the text look more balanced ( e.g A and V in some fonts)
+
+basics : colors 
+    - colors play a crucial role in ui/ux design - it enhances mood , draws attention and impacts the overall user experience 
+    - color theory 
+        - it is the study of how colors interact and the effects they create when combined . parts of color theory are as follows : 
+            - color harmony 
+            - color value 
+            - color temperature 
+
+    - contrast 
+        - refers to the difference in luminance or color that makes an object distinguishable from others. 
+        - wcag guidlines for accesibility : 
+            - for normal text , aim for a contrast ratio 4:5:1 
+            - for larger text , a contrast ratio of 3:1 is acceptable 
+            - tools like contrast checker ( webAIM ) can help ensure your design meets accesibility standards . 
+    -60-30-10 rule 
+        - 60 percent - dominant color - this will be the main color of your interface 
+            - background or large sections 
+        - 30 percent - secondary color - used to add contrast to the dominant color 
+            - sidebard , cards , buttons 
+        - 10 percent - used sparingly to highlight important actions 
+            - cta buttons , icons , links 
+
+introduction to ui/ux 
+    - includes visual elements such as buttons , text ,images , entry fields and anything the user can/could interact with 
+    - user experience(ux) - includes how a user interacts with and experiences a product 
+
+    - Difference between user interface and user xp 
+        - ux without ui is like brain without a body & a ui without ux is like a human without it's brain 
+    
+    - why ui/ux matters : 
+        - first impressions 
+            - 50 milliseconds users will judge your website 
+        - competitive edge 
+            - good ui/ux is often what makes users choose your product over another with similar features 
+        - scaling 
+            - consistent design helps maintain brand identity as you scale and adapt for new devices . 
+
+    - a solid ui consist of good typography , color theory , breathable spacing , maintaining consistency and responsive design 
+
+User Interface 
+    - focuses on the visual aspects of an application , including layout , color schemes , typography  and icons overall aesthetics 
+    - hierarchy 
+        - it refers to the arrangement of elements in a way that communicates importance and guides users through the interface 
+    - consistency
+    - white space 
+        - the focus for white space is to get attention on the hero page
+    - continuity 
+        - users tend to perceive elements that are arranged on a line or curve as related
+
+User experience
+    - let's discuss some important UX laws : 
+        - hick's law
+            - principle : the more choices you present , the longer it takes for users to make a decision 
+            - application : limit choices and break complex tasks into smaller steps ( e.g multi step forms )
+        - fitt's law 
+            - principle : the time to reach a target depends on it's size and distance 
+            - make buttons large etc 
+        - jacob's law 
+            - principel : users prefer interfaces that work like those they've already familiar with 
+            - e.g cart icon in top-right corner on e-comm sites 
+        - miller's law
+            - people can hold 7 items in their working memory . 
+            - chunk information and avoid overwhelming users with too many details at once . 
+        - law of proximity 
+            - objects close to each other are perceived as related 
+            - e.g form labels with input fields
+        - aesthetic usability effect 
+            - users perceive visually appealing designs as more usable 
+            - prioritize both aesthetic's and functionality to improve user satisfaction
+
+Bento grid
+    - compartmentalized compartments 
+    - organize content into distinct , modular sections of varying sizes. 
+

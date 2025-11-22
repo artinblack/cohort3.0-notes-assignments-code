@@ -1,0 +1,92 @@
+context : 
+- databases 
+- NoSql databases 
+- mongodb 
+- persist data in fullstack application 
+
+- creating a free mongodb cloud server 
+- connecting your full stack application to Mongodb 
+- defining the schema 
+- mongoose 
+- CRUD operations
+
+What are databases ? 
+- databases are organized collections of data that are structured to enable efficient storage, retrieval and management of information 
+- your backend stack can be node,go,rust your database stay static 
+- some databases are NoSQL , SQL 
+- user information
+- todo's of your todo app 
+- posts for facebook 
+- tweets for twitter 
+
+- backend will be stateless : there will be no information stored in backend
+- if your server is down then it is okay but if your database is down then you are screwed
+
+Mongodb and NoSQL databases 
+- nosql databases are a broad category of database systems that diverge from the traditional relational model used in the SQL database . 
+- they are designed to handle a variety of data models and workloads that may not fit nearly into the tabular schema of relational database . 
+
+Mongodb advantages ( nosql ) 
+- schema flexibility 
+- scalability 
+
+schema => what does the database look like ? 
+- todo application 
+    - users_table => email : string , password : string , name : string , age : integer 
+    - todos_table => title : string , done : boolean , deleted : boolean  
+
+MongoDB is schemaless 
+
+mongodb cluster => bunch of machines that are holding our data is called cluster of machines 
+
+collection => mongodb table 
+
+user collection and todo collection are connected by user id 
+
+whenever you have to create a relationship between collections make sure you have to store the id and not the full name and stuff 
+
+CRUD operations in mongodb refer to the basic operations you can perform on documents within a MongoDB database. CRUD stands for : 
+    - Create : Adding new documents to a collection
+    - Read : Retrieving documents from a collection 
+    - Update : Modifying existing documents in a collection
+    - Delete : Removing documents from a collection
+
+mongoose is the connecting/communication library between mongodb database and the express.js backend
+
+Improvements 
+- password is not hashed 
+- a single crash ( duplicate email ) crashes the whole app 
+- add more endpoints ( mark todo as done ) 
+- add timestamp at which todo was created/the time it needs to be done by 
+- relationships in mongo 
+- add validations to ensure email and password are correct format 
+
+odm - object document mapper 
+
+Hashing password 
+- why should you hash passwords ? 
+    - password hashing is a technique used to securely store passwords in a way that makes them difficult to recover or misuse. Instead of storing the actual password, you store a hashed version of it . 
+
+salt - a popular approach to hashing passwords involves using a hashing algorithm that incorporates a salt - a random value added to the password before hashing. This prevents attackers from using precomputed tables ( rainbow tables ) to crack passwords . 
+
+example : my password 123123 
+
+123123 -> saltedpassword -> 123123asdfasdfasdf -> hashedpassword -> blahblahblahblah -> hashedpassword and saltedpassword stored in database
+----------------
+if some another person comes with the same password then 
+
+123123 -> saltedpassword -> 123123jkl;jkl;jkl; -> hashedpassword -> asdfasdfasdfasdfasdf -> hashedpassword and saltedpassword stored in db 
+--------------------
+
+during signin how will the server login 
+- the server will first bring in the salt of the password then it will take the password that the user gave during the signing in then it will convert the password into the hash and then compare the hash with the database password and check if the password is correct or not correct 
+
+bcrypt - cryptographic hashing algorithm designed for securely hashing passwrods . 
+incorporates a salt and is designed to be computationally expensive , making brute-force attacks more difficult. 
+
+Error handling 
+
+Input validation - zod is a library used for schema validation and parsing. It is designed to help developers define, validate and manage data structures in a type-safe manner 
+- your server should do something called input validation 
+
+zod assignment - check that the password has 1 uppercase character , 1 lowercase character , 1 spl character

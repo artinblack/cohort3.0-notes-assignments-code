@@ -1,0 +1,73 @@
+What is DSA ? CP vs DSA ?
+- DSA stands for Data structures and algorithms 
+- Data structures means the way some data is stored. For example , we can store data as lists or in a stack or as a tree. All of these are examples of data structures. 
+
+- Algorithms is a set of steps you need to follow to solve some problem. Either the set of steps is known ( example , sorting , DFS etc) or you derive the set of steps using first principles and logical thinking 
+
+- CP stands for competitive programming . it is a sport where competitors solve DSA problems . they are either online or onsite. CodeChef , Codeforces are example of online platforms where CP contests are organised. You can participate in these sitting from home. ICPC , IOI , CodeJam , local contests in tech fests ect are example of onsite contests
+
+- CP vs DSA 
+    - technically cp is a sport version of DSA 
+    - however we often use DSA to refer to the action of people learning DSA for interview preparation or college exams whereas the term CP is used to refer to the action of people participating in the coding competitions / sport 
+
+- main focus fot the cohort 
+    - interview preparation 
+    - we will be learning the basics and trying to master the art of problem solving 
+    - popular dsa's 
+
+choice of language
+    - all of us want to stay in our comfort zone. But it is very difficult to write code in any language or more than 1 language in a live class . 
+    - we will try keeping most of our classes language agnostic. We will focus more on how to think about the problem and solve it than writing the code 
+    - in some classes there we will code 
+    - you will also get the code in all other languages in the reading materials 
+
+you are better off if I am not using the language you are comfortable in 
+    - you are learning a new langauage which is always advantageous without additional ( or very minimal ) effort on your end 
+    - you get to write the code yourself in your favourite language without my help . Your implementation strength increases 
+
+Arrays/lists
+    - collection of elements of some ( any ) type is called an array / lists 
+
+As mentioned above , the type of elements can be fixed or different depending on the language in case of C++ java type should be one only 
+python , JS - weakly typed
+
+python is not weakly typed. it does determine types and runtime and restrict some operations like 10 + "20". however, it does support heterogeneous arrays 
+
+Operations 
+    - creating an array/list
+        - for strongly typed languages you need to provide a type 
+        - you can also specify the size of the array/list 
+        - if you don't specify the size , it creates a dynamic array
+            - C++ code and JS code are different in forms of arrays 
+
+access array element using index
+    - access array element 
+    arr[0] ; => access the 0th element 
+    arr -> array variable 
+    [0] -> index of the element to be accessed 
+
+iterating on the elements 
+    - you can iterate through all the elements of the array. Generally you go left to right or right to left, one element at a time. 
+
+update the value at any index
+    - using an index , you can update the array value at that index. You can only do this for mutable arrays/lists however
+
+Strings 
+    - array/list of characters is called a string . it is a collection of alphabets , words or other characters
+    - example : 
+        - Hello World 
+        - Hello 
+        - Hello , I am 2020 graduate 
+
+as it is a list of characters you can perform similar operations on strings like arrays also the language often provides you with more capabilities for string manipulation 
+
+in some langauage (strings are immutable ( unchangeable ))
+
+whenever you get a string problem , try determining the possible set of characters . For example , if it is only lowercase or uppercase english alphabets, there are only 26 of them. If all characters are allowed there are 256 of them .
+
+Problem 1 : good pairs 
+
+Given an array of integers nums returns the number of good pairs
+a pair (i,j) is called good if nums[i] === nums[j] anr i<j ; 
+
+Always think in terms of first principles

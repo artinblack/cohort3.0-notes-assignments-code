@@ -1,0 +1,58 @@
+Step 1 - types of language
+
+1 strongly typed vs loosely typed
+
+- how a programming language handle types , particularly how strict they are about type conversions and type safety 
+
+Strongly typed languages 
+- examples :
+    - java , c , c++ , rust 
+- benefits 
+    - lesser runtime errors
+    - stricter codebase 
+    - easy to catch errors at compile time 
+
+Loosely typed languages 
+- examples : 
+    - python , javascript , perl , php 
+- benefits 
+    - easy to write code 
+    - fast to bootstrap 
+    - low learning curve 
+
+typescript
+    - typescript was introduced as a new language to add types on top of javascript
+    - developed by microsoft 
+
+ts -> js -> browser / node.js 
+
+tsc is the official typescript compiler that you can use to convert Typescript code into Javascript 
+
+problem 1 - hello world 
+
+
+// rootDir 
+// outDir 
+// noImplicitAny 
+// removeComments 
+
+
+Step 6 - interfaces 
+- what are interfaces ? 
+    - how can you assign types of objects? For example , a user object that looks like
+    - const user = { 
+        lastname : "bhagtani" , 
+        email : "aashrayasdjfas;kldfj" 
+        age : 21
+    }
+    - to assign a type to the user object , you can use interfaces
+    - interface User { 
+        firstname : string , 
+        lastname : string , 
+        email : string , 
+        age : number , 
+    }
+
+what are types ? 
+- very similar to interfaces , types let you aggregate data together 
+

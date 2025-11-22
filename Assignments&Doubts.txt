@@ -1,0 +1,12 @@
+expenditure analysis - easy - week2-js 
+calculator - hard - week2-js 
+todolist - hard - week2-js 
+
+you need to do the following weeks 
+week-11-recoil / any state management libraries 
+week-12-ui/ux primitives 
+week-13-tailwindcss 
+
+learn these from youtube they are better over there 
+
+

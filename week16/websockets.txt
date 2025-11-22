@@ -1,0 +1,59 @@
+context 
+- websockets ( protocol)
+- websockets in node.js 
+- ws in node.js (code) 
+- socket io 
+- client side code 
+- scaling ws servers ( hard than http servers )
+
+websockets 
+    - provide a way to establish a persistent , full-duplex communication channel over a single TCP connection between the client ( typically a web browser ) and the server 
+
+Browser -> first request ( give me sol price ) -> server 
+-------------------- persistent connection -------------
+server -> sol price is 170.08 -> browser 
+server -> sol price is 170.01 -> browser
+server -> sol price is 170.12 -> browser
+
+determined to continue doing something even though people say that you are wrong or that you cannot do it
+
+3 way handshake 
+
+persistent connection - websockets , webRTC
+
+TCP - transmission control procotol
+
+OSI model 
+    - Highest layer - HTTP , websockets , webRTC  
+    - lowest layer  - TCP  , UDP 
+
+websockets under the hood use TCP procotol
+webRTC uses UDP 
+
+For real time communication RTC - apko real time me pata lag raha hai ki price kya hai 
+
+http for chat application - polling / long polling 
+
+echo Application 
+ping pong application 
+
+frontend is kinda hard in this 
+backend is easy in this 
+
+chat application 
+
+scaling web servers 
+    - in the real world , you'd want more than one websocket servers ( Especially as your website gets more traffic )
+    - the way to scale websocket servers usually happens by creating a ws fleet 
+    - there is usually a central layer behind it that orchestrates messages 
+    - ws servers are kept stateless 
+    
+ws servers are kept stateless
+
+another protocol similar to http , 
+
+one time request - in http 
+
+multiple requests and response - two way communication 
+
+

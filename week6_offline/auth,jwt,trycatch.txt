@@ -1,0 +1,84 @@
+Authentication , JWT's and try/catch block 
+
+- using real world examples 
+
+high level how auth is done using real world examples 
+- mishra ji ( SBI bank ) 
+- kirat from college wanting to open a bank account in ( SBI bank ) 
+
+1 kirat goes to open a bank account 
+2 kirat deposits some money 
+3 kirat gets back a cheque book from bank 
+
+1 whenever kirat has to pay someone , he signs a cheque 
+2 Everyone can see his sign 
+3 People can try to do the same sign on their cheque book 
+4 Bank won't accept theirs , will only accept kirat's cheque 
+
+My cheque book = my jwt 
+
+getting back of the cheque book is similar to getting back the jwt from the backend 
+
+The cheque 
+1 something the bank gave me the first time I visit it ( sign in ) 
+2 something I need to keep safe , if I lose the cheque , someone can debit my account 
+3 even though other people can see my cheque/signature/how the cheque looks , if they try to re-create , the bank will catch them . 
+
+but if you give them your exact signed cheque book that the bank gave you , then they can steal your funds 
+
+them ( intruder ) 
+
+JSON web tokens are just like these cheques they are issued by the backend when you sign in Anyone can create something very similar, but the backend would reject it If you lose the original jwt , then it is a problem . 
+
+the open ai backend 
+THE BACKEND WILL FIRST VERIFY THE JWT 
+RUNS MODEL 
+RETURNS VALUE 
+
+1 generating a jwt 
+2 decoding a jwt 
+3 verifying a jwt 
+
+1 generating a jwt - bank giving you a chequebook with the help of a secret key 
+
+const token = jwt.sign({
+    username : username 
+},JWT_SECRET) ;
+
+2 decoding a jwt - if you have a cheque book and generate the same cheque book but the bank will not verify and accept that cheque book 
+
+const decodedjwt = jwt.decode(token) ; 
+const decodedusername = decodedjwt.username ;
+
+3 verifying a jwt - if you have a cheque book given by the bank then the bank will verify the jwt using the secret key 
+
+
+-----------
+const jwt = require('jsonwebtokens') ; 
+const JWT_SECRET = 'aashraybhgatani' 
+const value = { 
+    name : "aashray" , 
+    accountnumber : 123456 
+}
+
+const token = jwt.sign(value,secret) ; 
+
+// this token has been generated using the secret , and hence this token can only be verified using this secret           
+
+Try and catch 
+
+throwing and catching errors in javascript
+
+- when an exception is raised the process exits since the JS program doesn't want to proceed anymore
+
+try { 
+    let a ; 
+    console.log(a.length) ;
+} catch(err) { 
+    console.log(err) ; 
+}
+
+console.log('hi there') ; 
+
+- normal execution proceeds after 
+

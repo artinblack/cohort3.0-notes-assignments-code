@@ -1,0 +1,11 @@
+@import "tailwindcss" ; 
+
+@theme { 
+    --color-purple-600 : oklch(55.9% 0.140 288.6deg) ;
+    --color-purple-200 : oklch(90.0% 0.024 276.3deg) ; 
+    --color-purple-500 : oklch(69.0% 0.107 284.5deg) ; 
+
+    --color-gray-100 : #eeeeef ; 
+    --color-gray-200 : #e6e9ed ; 
+    --color-gray-600 : #95989c ;     
+}
